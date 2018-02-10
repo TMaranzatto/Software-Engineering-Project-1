@@ -1,30 +1,28 @@
-class UI
+//TODO make UI that scales to the window size
+//hugs left, top, and right portions of the window
+
+class UI 
 {
 
   UI(){}
   
   void display()
   {
-    
-    //setting toolbar colors
+    drawToolBar();
+    drawPropertiesBar();
+    drawColorBar();
+  }
+  
+  private void drawToolBar()
+  {
     fill(230);
-    //top toolbar for saving and loading
-    rect(0,0, 799,50);
-    //toolbar for selecting lines, curves, etc.
     rect(10,70, 140, 401);
-    //drawing area
-    rect(170, 70, 570, 401);
-    stroke(0,255,0);
-    strokeWeight(2);
-    stroke(0,0,0);
-    strokeWeight(1);
+  }
+  
+  private void drawColorBar()
+  {
     //this is color select area
     rect(740,70, 50, 401);
-    //this is reserved space for future features
-    rect(170, 500, 620, 69);
-    
-    //WE MAKE OUR BUTTONS
-    
     //color selection
     noStroke();
     //white
@@ -51,22 +49,11 @@ class UI
     //magenta
     fill(color(255,0,255));
     rect(741, 421, 49,50);
-    
-    fill(0);
-    
-    //buttons for lines, polygons, and curves
-    textAlign(LEFT,TOP);
-    textSize(32);
-    text("LINE", 43, 70);
-    text("CIRCLE", 25, 120);
-    text("RECT", 40, 170);
-    text("POLY", 40, 220);
-    text("CURVE", 30, 270);
-    text("TEXT", 40, 320);
-    text("GROUP", 30, 370);
-    text("DELETE", 25, 420);
-    
-    text("SAVE", 10, 0);
-    text("LOAD", 110, 0);
   }
+  private void drawPropertiesBar()
+  {
+    fill(230);
+    rect(0,0, 799,50);
+  }
+  
 }
