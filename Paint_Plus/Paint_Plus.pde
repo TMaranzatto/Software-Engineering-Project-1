@@ -1,27 +1,27 @@
+//UI creation
+
 void setup(){
-  //we set up our interface here
-  size(800,600);
   //canvas is 800x600 pixels
+  size(800,600);
+  
   
   //WE SET THE GENERAL SPACES FOR OUR BUTTONS
   
   //setting toolbar colors
   fill(230);
-  //this is our top toolbar for saving and loading
+  //top toolbar for saving and loading
   rect(0,0, 799,50);
-  //this is our toolbar for selecting lines, curves, etc.
+  //toolbar for selecting lines, curves, etc.
   rect(10,70, 140, 401);
-  //this is the drawing area
+  //drawing area
   rect(170, 70, 570, 401);
   stroke(0,255,0);
   strokeWeight(2);
-  rect(180,80, 550,381);
   stroke(0,0,0);
   strokeWeight(1);
   //this is color select area
   rect(740,70, 50, 401);
   //this is reserved space for future features
-  rect(10, 500, 140, 69);
   rect(170, 500, 620, 69);
   
   //WE MAKE OUR BUTTONS
@@ -53,38 +53,24 @@ void setup(){
   fill(color(255,0,255));
   rect(741, 421, 49,50);
   
-  //default green line
-  fill(color(0,0,0));
-  noFill();
-  stroke(0,255,0);
-  strokeWeight(1.5);
+  fill(0);
   
   //buttons for lines, polygons, and curves
   textAlign(LEFT,TOP);
   textSize(32);
   text("LINE", 43, 70);
-  rect(15, 72, 130, 35);
   text("CIRCLE", 25, 120);
-  rect(15, 120, 130, 37);
   text("RECT", 40, 170);
-  rect(15, 170, 130, 37);
   text("POLY", 40, 220);
-  rect(15, 220, 130, 37);
   text("CURVE", 30, 270);
-  rect(15, 270, 130, 37);
   text("TEXT", 40, 320);
-  rect(15, 320, 130, 37);
   text("GROUP", 30, 370);
-  rect(15, 370, 130, 37);
   text("DELETE", 25, 420);
-  rect(15, 420, 130, 37);
+  
   text("SAVE", 10, 0);
-
   text("LOAD", 110, 0);
   
-  text("ZOOM", 210, 0);
   
-  text("BRUSH", 320, 0);
   
   
   
