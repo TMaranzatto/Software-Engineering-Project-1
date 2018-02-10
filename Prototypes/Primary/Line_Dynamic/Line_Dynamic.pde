@@ -1,6 +1,8 @@
 //this sketch doesn't store each lines on canvas, just the implementation of 
 //drawing interactive line with two clicks
 
+// !!! Change to click and drag mechanics
+
 int turn = 1; //first click + second click
 float x1 = 0, x2 = 0, y1 = 0, y2 = 0;
 

@@ -1,5 +1,8 @@
 //dynamic implementation for curve
 
+// !!! Change the parts to click and drag scheme
+
+
 int turn = 1; //no idea yet
 float x1 = 0, x2 = 0, x3 = 0, x4 = 0;
 float y1 = 0, y2 = 0, y3 = 0, y4 = 0;

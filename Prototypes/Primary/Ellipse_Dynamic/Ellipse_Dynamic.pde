@@ -1,5 +1,8 @@
 //dynamic implementation for ellipse
 
+// !!! Change to click and drag mechanics, with default size, if it wasn't dragged
+// far enough
+
 int turn = 1; //first click + second click
 float x1 = 0, x2 = 0, y1 = 0, y2 = 0;
 
