@@ -2,8 +2,8 @@
 
 void setup()
 {
-  size(800,600);
-  //fullScreen(); for future use, maybe
+  size(800,600);   //window size
+  background(255); //white canvas
   
   UI myUI = new UI();
   myUI.display();
