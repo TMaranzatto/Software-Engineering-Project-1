@@ -1,5 +1,4 @@
-//TODO make UI that scales to the window size
-//hugs left, top, and right portions of the window
+//draws UI that scales to the window size
 
 class UI 
 {
@@ -8,9 +7,10 @@ class UI
   
   void display()
   {
-    drawToolBar();
-    drawPropertiesBar();
-    drawColorBar();
+    drawPropertiesBar(); //top
+    drawNavigationBar();     //bottom
+    drawToolBar();       //left
+    drawColorBar();      //right
   }
   
   private void drawToolBar()
@@ -70,6 +70,15 @@ class UI
     int startY = -1;
     fill(230);
     rect(startX, startY, width + 1, barHeight);
+  }
+  
+  private void drawNavigationBar()
+  {
+    int barHeight = 52;
+    int startX = -1;
+    int startY = height - barHeight;
+    fill(230);
+    rect(startX, startY, width + 1, height - barHeight);
   }
   
 }
