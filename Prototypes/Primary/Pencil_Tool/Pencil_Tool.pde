@@ -7,7 +7,6 @@ void setup()
   size(400,400);
   background(255);
   noSmooth(); //should be used here
-  strokeWeight(4); //default will be 1
 }
 
 void draw()
