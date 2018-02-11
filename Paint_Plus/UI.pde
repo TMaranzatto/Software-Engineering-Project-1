@@ -24,35 +24,28 @@ class UI
     rect(startX, startY, barWidth, barHeight);
     
     //Pencil tool
-    PImage pencil;
-    pencil = loadImage("Pencil_Tool.png");
-    image(pencil, startX + 1, startY + 1, size, size);
+    Button pencil = new Button("Pencil_Tool", startX + 1, startY + 1, "Icons/Pencil_Tool.png");
+    pencil.display();
     
     //Line tool
-    PImage line;
-    line = loadImage("Line_Tool.png");
-    image(line, startX + 1, startY + 1 + size * 1, size, size);
+    Button line = new Button("Line_Tool", startX + 1, startY + 1 + size * 1, "Icons/Line_Tool.png");
+    line.display();
     
-    //Line tool
-    PImage ellipse;
-    ellipse = loadImage("Ellipse_Tool.png");
-    image(ellipse, startX + 1, startY + 1 + size * 2, size, size);
+    //Ellipse tool
+    Button ellipse = new Button("Ellipse_Tool", startX + 1, startY + 1 + size * 2, "Icons/Ellipse_Tool.png");
+    ellipse.display();
     
     //Rect tool
-    fill(0);
-    noStroke();
-    rect(startX + 1, startY + 1 + size * 3, size, size);
-    stroke(1);
+    Button rect = new Button("Rect_Tool", startX + 1, startY + 1 + size * 3, "Icons/Rect_Tool.jpg");
+    rect.display();
     
     //Curve tool
-    PImage curve;
-    curve = loadImage("Curve_Tool.png");
-    image(curve, startX + 1, startY + 1 + size * 4, size, size);
+    Button curve = new Button("Curve_Tool", startX + 1, startY + 1 + size * 4, "Icons/Curve_Tool.png");
+    curve.display();
     
     //Curve tool
-    PImage text;
-    text = loadImage("Text_Tool.png");
-    image(text, startX + 1, startY + 1 + size * 5, size, size);
+    Button text = new Button("Text_Tool", startX + 1, startY + 1 + size * 5, "Icons/Text_Tool.png");
+    text.display();
   }
   
   private void drawColorBar()
