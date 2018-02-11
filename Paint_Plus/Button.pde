@@ -1,7 +1,10 @@
 class Button
 {
+  //important
   private String name;
   private int posX, posY;
+  private boolean selected;
+  //details
   private PImage icon;
   private int size;
   private color col;
@@ -12,6 +15,7 @@ class Button
     name = n;
     posX = x;
     posY = y;
+    selected = false;
     size = 50;
     if(c == 0){ icon = loadImage(path); isColor = false;}
     else if(c >= 1 && c <= 8)
@@ -46,21 +50,32 @@ class Button
     }
   }
   
-  String getName(){return name;}
-  int getX(){return posX;}
-  int getY(){return posY;}
-  
-  void display()
-  {
-    if(isColor == false){
+  void display(){
+    if(isColor == false)
+    {
       image(icon, posX, posY, size, size);
     }
-    else{
+    else
+    {
       fill(col);
       noStroke();
       rect(posX, posY, size, size);
       stroke(1);
-    }
-    
+    } 
   }
+  
+  String getName(){
+  return name;
+  }
+  
+  boolean overlaps(int x, int y){
+    if(x >= posX && x <= posX + size){return true;}
+    else if(y >= posY && y <= posY + size){return true;}
+    return false;
+  }
+  
+  void select(){ selected = true;}
+  void deSelect(){ selected = false;}
+  boolean isSelected(){ return selected;}
+  
 }
