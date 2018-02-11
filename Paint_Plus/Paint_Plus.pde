@@ -10,5 +10,17 @@ void setup()
   myUI.display();
 }
 
-void draw()
+void draw(){}
+
+
+void mouseClicked()
+{}
+
+void mousePressed()  
+{}
+
+void mouseDragged()
+{}
+
+void mouseReleased()
 {}
