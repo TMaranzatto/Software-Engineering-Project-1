@@ -3,7 +3,35 @@
 class UI 
 {
 
-  UI(){}
+  private ArrayList<Button> buttons;
+  
+  UI()
+  {
+    buttons = new ArrayList<Button>();
+    
+    //left toolbar
+    int size = 50;
+    int barHeight = 401;
+    int startX = 0;
+    int startY = (height - barHeight) / 2 + 1;
+    buttons.add(new Button("Pencil_Tool", startX, startY, "Icons/Pencil_Tool.png",0));
+    buttons.add(new Button("Line_Tool", startX, startY + size * 1, "Icons/Line_Tool.png",0));
+    buttons.add(new Button("Ellipse_Tool", startX, startY + size * 2, "Icons/Ellipse_Tool.png",0));
+    buttons.add(new Button("Rect_Tool", startX, startY + size * 3, "Icons/Rect_Tool.jpg",0));
+    buttons.add(new Button("Curve_Tool", startX, startY + size * 4, "Icons/Curve_Tool.png",0));
+    buttons.add(new Button("Text_Tool", startX, startY + size * 5, "Icons/Text_Tool.png",0));
+  
+    //right toolbar
+    startX = width - (size + 1) + 1;
+    buttons.add(new Button("White_Button", startX, startY + size * 0, "none", 1));
+    buttons.add(new Button("Black_Button", startX, startY + size * 1, "none", 2));
+    buttons.add(new Button("Red_Button", startX, startY + size * 2, "none", 3));
+    buttons.add(new Button("Green_Button", startX, startY + size * 3, "none", 4));
+    buttons.add(new Button("Blue_Button", startX, startY + size * 4, "none", 5));
+    buttons.add(new Button("Yellow_Button", startX, startY + size * 5, "none", 6));
+    buttons.add(new Button("Cyan_Button", startX, startY + size * 6, "none", 7));
+    buttons.add(new Button("Magenta_Button", startX, startY + size * 7, "none", 8));
+}
   
   void display()
   {
@@ -11,41 +39,20 @@ class UI
     drawNavigationBar();     //bottom
     drawToolBar();       //left
     drawColorBar();      //right
+    for(int i = 0; i < buttons.size(); i++)
+    {
+      buttons.get(i).display();
+    }
   }
   
   private void drawToolBar()
   {
-    int size = 50;
     int barWidth = 51;
     int barHeight = 401;
     int startX = -1;
     int startY = (height - barHeight) / 2;
     fill(230);
     rect(startX, startY, barWidth, barHeight);
-    
-    //Pencil tool
-    Button pencil = new Button("Pencil_Tool", startX + 1, startY + 1, "Icons/Pencil_Tool.png");
-    pencil.display();
-    
-    //Line tool
-    Button line = new Button("Line_Tool", startX + 1, startY + 1 + size * 1, "Icons/Line_Tool.png");
-    line.display();
-    
-    //Ellipse tool
-    Button ellipse = new Button("Ellipse_Tool", startX + 1, startY + 1 + size * 2, "Icons/Ellipse_Tool.png");
-    ellipse.display();
-    
-    //Rect tool
-    Button rect = new Button("Rect_Tool", startX + 1, startY + 1 + size * 3, "Icons/Rect_Tool.jpg");
-    rect.display();
-    
-    //Curve tool
-    Button curve = new Button("Curve_Tool", startX + 1, startY + 1 + size * 4, "Icons/Curve_Tool.png");
-    curve.display();
-    
-    //Curve tool
-    Button text = new Button("Text_Tool", startX + 1, startY + 1 + size * 5, "Icons/Text_Tool.png");
-    text.display();
   }
   
   private void drawColorBar()
@@ -55,37 +62,9 @@ class UI
     int barWidth = 52;
     int startX = width - (size + 1);
     int startY = (height - barHeight) / 2;
-    
     //color select area
     fill(0);
     rect(startX, startY, barWidth, barHeight);
-    
-    //color selection
-    noStroke();
-    //white
-    fill(color(255,255,255));
-    rect(startX + 1,startY+1, size, size);
-    //black
-    fill(color(0,0,0));
-    rect(startX + 1, startY + size * 1 + 1, size, size);
-    //red
-    fill(color(255,0,0));
-    rect(startX + 1, startY + size * 2 + 1, size,size);
-    //green
-    fill(color(0,255,0));
-    rect(startX + 1, startY + size * 3 + 1, size, size);
-    //blue
-    fill(color(0,0,255));
-    rect(startX + 1, startY + size * 4 + 1, size,size);
-    //yellow
-    fill(color(255,255,0));
-    rect(startX + 1, startY + size * 5 + 1, size, size);
-    //cyan
-    fill(color(0,255,255));
-    rect(startX + 1, startY + size * 6 + 1, size, size);
-    //magenta
-    fill(color(255,0,255));
-    rect(startX + 1, startY + size * 7 + 1, size, size);
   }
   
   private void drawPropertiesBar()
