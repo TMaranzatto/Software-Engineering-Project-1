@@ -5,7 +5,7 @@ float prevX = 0, prevY = 0;
 void setup()
 {
   size(400,400);
-  background(0);
+  background(255); 
   noSmooth(); //should be used here
 }
 
@@ -23,6 +23,7 @@ void mouseDragged()
 {
   //point(mouseX, mouseY);   bad implementation
   
+  stroke(255);
   line(prevX, prevY, mouseX, mouseY);
   prevX = mouseX;
   prevY = mouseY;
