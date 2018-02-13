@@ -52,13 +52,22 @@ class Pencil extends Drawable
     myCanvas.display();
     if(super.prevX != 0 && super.prevY != 0){
       shap.addChild(createShape(LINE,super.prevX, super.prevY, x, y));
+      //println(shap.getChildCount());
+      for(int i = 0; i < shap.getChildCount(); i++){
+       shape(shap.getChild(i));
+      }
       line(super.prevX, super.prevY, x, y);
     }
      super.prevX = x;
      super.prevY = y;
   }
   
-  //display wont do much for us here..
+  void display(){
+    myCanvas.display();
+    for(int i = 0; i < shap.getChildCount(); i++){
+       shape(shap.getChild(i));
+      }
+  }
   
 }
 
