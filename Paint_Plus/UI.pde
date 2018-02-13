@@ -14,7 +14,7 @@ class UI
     int barHeight = 401;
     int startX = 0;
     int startY = (height - barHeight) / 2 + 1;
-    buttons.add(new Button("Pencil_Tool", startX, startY, "Icons/Pencil_Tool.png",0));
+    buttons.add(new Button("Pencil_Tool", startX, startY +  size * 0, "Icons/Pencil_Tool.png",0));
     buttons.add(new Button("Paint_Tool", startX, startY + size * 1, "Icons/Paint_Tool.png",0));
     buttons.add(new Button("Line_Tool", startX, startY + size * 2, "Icons/Line_Tool.png",0));
     buttons.add(new Button("Curve_Tool", startX, startY + size * 3, "Icons/Curve_Tool.png",0));
