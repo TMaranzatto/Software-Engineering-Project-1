@@ -1,4 +1,4 @@
-//text tool, basic
+//text tool
 
 float textX = 0, textY = 0;
 ArrayList<Character> text;
