@@ -33,6 +33,13 @@ class UI
     buttons.add(new Button("Yellow_Button", startX, startY + size * 5, "none", 6));
     buttons.add(new Button("Cyan_Button", startX, startY + size * 6, "none", 7));
     buttons.add(new Button("Magenta_Button", startX, startY + size * 7, "none", 8));
+    
+    //bottom toolbar
+    startX = 0;
+    startY += barHeight + size;
+    buttons.add(new Button("Group_Button", startX +  size * 0, startY, "Icons/Group_Tool.png",0));
+    buttons.add(new Button("Ungroup_Button", startX + size * 1, startY, "Icons/Ungroup_Tool.png",0));
+    buttons.add(new Button("Bucket_Tool", startX + size * 2, startY, "Icons/Bucket_Tool.png",0));
 }
   
   void display()
