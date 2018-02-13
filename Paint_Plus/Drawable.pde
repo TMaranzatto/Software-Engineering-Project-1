@@ -37,8 +37,6 @@ class Line extends Drawable
   }
   void mouseD(int x, int y){
     println("Line mouseD");
-    background(255);
-    myUI.display();
     myCanvas.display();
     line(super.posX, super.posY, x, y);
   }
@@ -46,8 +44,6 @@ class Line extends Drawable
     println("Line mouseR");
     posX2 = x;
     posY2 = y;
-    background(255);
-    myUI.display();
     myCanvas.display();
     line(super.posX, super.posY, posX2, posY2);
   }
