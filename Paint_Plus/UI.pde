@@ -43,6 +43,9 @@ class UI
     buttons.add(new Button("Magnifier_Button", startX + size * 3, startY, "Icons/Magnify_Tool.png",0));
     buttons.add(new Button("Undo_Buttom", startX + size * 4, startY, "Icons/Undo_Tool.png", 0));
     buttons.add(new Button("Save_Button", startX + size * 15, startY, "Icons/Save_Tool.png", 0));
+    buttons.add(new Button("Click_Buttom", startX + size * 5, startY, "Icons/Click_Tool.png", 0));
+    buttons.add(new Button("Pan_Button", startX + size * 6, startY, "Icons/Pan_Tool.png", 0));
+    
     
 }
   
