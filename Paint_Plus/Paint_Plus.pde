@@ -62,25 +62,37 @@ void mouseClicked()
 
 void mousePressed()  
 {
-  shape = new Pencil();
+  //trying pencil and line
+  if(toolSelected == 1){
+    shape = new Pencil();
+  }
   //this is problematic!!!
   //some shapes need multiple mouse presses for them to be constructed
   //ie polygons and curves
-  myCanvas.add(shape);
-  shape.mouseP(mouseX, mouseY);
+  if(shape != null){
+    myCanvas.add(shape);
+    shape.mouseP(mouseX, mouseY);
+  }
 }
 
 void mouseDragged()
 {
-  shape.mouseD(mouseX, mouseY);
+  if(shape != null){
+    shape.mouseD(mouseX, mouseY);
+  }
 }
 
 void mouseReleased()
 {
-  shape.mouseR(mouseX, mouseY);
-  //myCanvas.delete(shape);
+  if(shape != null){
+    shape.mouseR(mouseX, mouseY);
+  }
 }
 
 void keyTyped(){
-  shape.keyT(key);
+  if(shape != null){
+    shape.keyT(key);
+  }
+  //myCanvas.delete(shape);
+  //myCanvas.display();
 }

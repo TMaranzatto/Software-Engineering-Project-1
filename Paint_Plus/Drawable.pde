@@ -4,9 +4,7 @@ class Drawable
   
   private int posX;
   private int posY;
-  private int prevX, prevY;
   PShape shap = createShape(GROUP);
-  
   private int[] centerPoint;
   private int rotation;
   private int scale;
@@ -39,34 +37,34 @@ class Polygon extends Drawable
 class Pencil extends Drawable
 { 
   //these cause issues... we need to create these as dynamic pshapes
+  //this works but crashes for more than one pencil on the canvas
   Pencil(){}
   
   void mouseP(int x, int y){
     super.posX = x;
     super.posY = y;
-    shap.addChild(createShape(LINE,x,y,x,y));
+    shap.addChild(createShape(LINE, x, y, x, y));
     point(x,y);
   }
   
   void mouseD(int x, int y){
     myCanvas.display();
-    if(super.prevX != 0 && super.prevY != 0){
-      shap.addChild(createShape(LINE,super.prevX, super.prevY, x, y));
+    //this is super duper laggy
+    if(super.posX != 0 && super.posY != 0){
+      shap.addChild(createShape(LINE,super.posX, super.posY, x, y));
       //println(shap.getChildCount());
-      for(int i = 0; i < shap.getChildCount(); i++){
-       shape(shap.getChild(i));
-      }
-      line(super.prevX, super.prevY, x, y);
+      shape(shap);
+      //line(super.prevX, super.prevY, x, y);
     }
-     super.prevX = x;
-     super.prevY = y;
+     super.posX = x;
+     super.posY = y;
   }
   
+  
   void display(){
-    myCanvas.display();
-    for(int i = 0; i < shap.getChildCount(); i++){
-       shape(shap.getChild(i));
-      }
+    //myCanvas.display();
+    shape(shap);
+    //shap = createShape(GROUP);
   }
   
 }
@@ -89,24 +87,29 @@ class Paint extends Drawable
   void mouseD(int x, int y){
     myCanvas.display();
     strokeWeight(thickness);
-    if(super.prevX != 0 && super.prevY != 0){
+    if(super.posX != 0 && super.posY != 0){
       if(thickness < max){
-        line(super.prevX, super.prevY, x, y);
+        shap.addChild(createShape(LINE,super.posX, super.posY, x, y));
+        shape(shap);
         thickness += 0.25;
       }
       else{
-        line(super.prevX, super.prevY, x, y);
+        shap.addChild(createShape(LINE,super.posX, super.posY, x, y));
+        shape(shap);
         strokeWeight(max);
       }
     }
-     super.prevX = x;
-     super.prevY = y;
+     super.posX = x;
+     super.posY = y;
   }
   
-  void mouseR(int x, int y){
-   myCanvas.display();
-   thickness = 1; 
+  
+  void display(){
+    //myCanvas.display();
+    shape(shap);
+    //shap = createShape(GROUP);
   }
+  
 }
 
 class Line extends Drawable
@@ -199,7 +202,6 @@ class Text extends Drawable
   Text(){}
   
   void mouseP(int x, int y){
-    print(x);
     super.posX = x;
     super.posY = y;
   }

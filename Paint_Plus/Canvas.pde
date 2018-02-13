@@ -13,7 +13,7 @@ class Canvas
   }
   
   void add(Drawable shape){
-    println("Canvas added shape");
+    //println("Canvas added shape");
     shapes.add(shape);
   }
   
@@ -27,9 +27,10 @@ class Canvas
     noStroke();
     rect(posX, posY, w, h);
     stroke(1);
-    println("Canvas display");
+    //println("Canvas display");
     for(int i = 0; i < shapes.size() - 1; i++)
     {
+      //println(shapes.size());
       shapes.get(i).display();
     }
   }
