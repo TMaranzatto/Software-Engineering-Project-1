@@ -63,6 +63,7 @@ void mouseClicked()
 void mousePressed()  
 {
   shape = new Line();
+  myCanvas.add(shape);
   shape.mouseP(mouseX, mouseY);
 }
 

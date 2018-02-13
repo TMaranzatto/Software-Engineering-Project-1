@@ -14,6 +14,7 @@ class Drawable
   void mouseP(int x, int y){}
   void mouseD(int x, int y){}
   void mouseR(int x, int y){}
+  void display(){}
 }
 
 //individual types of classes
@@ -38,15 +39,19 @@ class Line extends Drawable
     println("Line mouseD");
     background(255);
     myUI.display();
+    myCanvas.display();
     line(super.posX, super.posY, x, y);
   }
-  void mouseR(int x, int y)
-  {
+  void mouseR(int x, int y){
     println("Line mouseR");
     posX2 = x;
     posY2 = y;
     background(255);
     myUI.display();
+    myCanvas.display();
+    line(super.posX, super.posY, posX2, posY2);
+  }
+  void display(){
     line(super.posX, super.posY, posX2, posY2);
   }
 }

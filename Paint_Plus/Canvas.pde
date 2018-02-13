@@ -8,10 +8,15 @@ class Canvas
   }
   
   void add(Drawable shape){
+    println("Canvas add shape");
     shapes.add(shape);
   }
   
   void display(){
-  
+    println("Canvas display");
+    for(int i = 0; i < shapes.size(); i++)
+    {
+      shapes.get(i).display();
+    }
   }
 }
