@@ -1,14 +1,17 @@
 //main file
 
 int toolSelected = 0;
+UI myUI;
+Canvas myCanvas;
+Drawable shape;
 
 void setup()
 {
   size(800,600);   //window size
   background(255); //white canvas
-  noLoop();        //draw might not be used at all, stops it from looping
   
-  UI myUI = new UI();
+  myUI = new UI();
+  myCanvas = new Canvas();
   myUI.display();
 }
 
@@ -17,6 +20,7 @@ void draw(){}
 
 void mouseClicked()
 {
+  
   int startX = 50;
   int endX = width - startX;
   int barHeight = 401;
@@ -50,19 +54,24 @@ void mouseClicked()
     else if(mouseY >= startY + size * 7 && mouseY <= startY + size * 8){toolSelected = 16;}
     println(toolSelected);
   }
+  else //if clicked not on the tool
+  {
+    
+  }
 }
 
 void mousePressed()  
 {
-
+  shape = new Line();
+  shape.mouseP(mouseX, mouseY);
 }
 
 void mouseDragged()
 {
-
+  shape.mouseD(mouseX, mouseY);
 }
 
 void mouseReleased()
 {
-
+  shape.mouseR(mouseX, mouseY);
 }
