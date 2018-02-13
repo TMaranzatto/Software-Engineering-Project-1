@@ -8,6 +8,10 @@ class Drawable
   private int scale;
   
   Drawable(){}
+  void mouseP(){}
+  void mouseD(){}
+  void mouseR(){}
+  
 }
 
 //individual types of classes
@@ -18,7 +22,9 @@ class Paint extends Drawable
 {}
 
 class Line extends Drawable
-{}
+{
+  
+}
 
 class Curve extends Drawable
 {}
