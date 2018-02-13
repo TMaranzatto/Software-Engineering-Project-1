@@ -4,7 +4,7 @@ int toolSelected = 0;
 UI myUI;
 Canvas myCanvas;
 Drawable shape;
-
+HashMap<Integer, Drawable> tools;
 void setup()
 {
   size(800,600);   //window size
@@ -13,6 +13,9 @@ void setup()
   myUI = new UI();
   myCanvas = new Canvas();
   myUI.display();
+  tools = new HashMap<Integer, Drawable>();
+  tools.put(1, new Pencil()); tools.put(2, new Paint()); tools.put(3, new Line()); tools.put(4, new Curve());
+  tools.put(5, new Ellipse()); tools.put(6, new Rectangle()); tools.put(7, new Polygon()); tools.put(8, new Text());
 }
 
 void draw(){}
@@ -62,10 +65,7 @@ void mouseClicked()
 
 void mousePressed()  
 {
-  //trying pencil and line
-  if(toolSelected == 1){
-    shape = new Pencil();
-  }
+  shape = tools.get(toolSelected);
   //this is problematic!!!
   //some shapes need multiple mouse presses for them to be constructed
   //ie polygons and curves
@@ -91,8 +91,13 @@ void mouseReleased()
 
 void keyTyped(){
   if(shape != null){
-    shape.keyT(key);
+    if(shape == tools.get(8)){
+      if(shape.done == false){
+        shape.keyT(key);
+      }
+      else{
+        myCanvas.saveState();
+      }
+    }
   }
-  //myCanvas.delete(shape);
-  //myCanvas.display();
 }

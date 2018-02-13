@@ -2,16 +2,17 @@
 class Drawable
 {
   
-  private int posX;
-  private int posY;
-  PShape shap = createShape(GROUP);
-  private int[] centerPoint;
+  private int posX = 0;
+  private int posY = 0;
+  PShape shap = createShape(GROUP);;
+  private int[] centerPoint = new int[2];
   private int rotation;
   private int scale;
+  private boolean done = false;
   
-  Drawable(){
-    rotation = 100;
-    scale = 100;
+  public Drawable(){
+    this.rotation = 100;
+    this.scale = 100;
   }
   
   void mouseP(int x, int y){}
@@ -38,8 +39,9 @@ class Pencil extends Drawable
 { 
   //these cause issues... we need to create these as dynamic pshapes
   //this works but crashes for more than one pencil on the canvas
-  Pencil(){}
-  
+  Pencil(){
+    stroke(1);
+  }
   void mouseP(int x, int y){
     super.posX = x;
     super.posY = y;
@@ -103,6 +105,10 @@ class Paint extends Drawable
      super.posY = y;
   }
   
+  void mouseR(int x, int y){
+    strokeWeight(1);
+    thickness = 1;
+  }
   
   void display(){
     //myCanvas.display();
@@ -119,6 +125,7 @@ class Line extends Drawable
   
   Line(){}
   void mouseP(int x, int y){
+    shap.addChild(createShape(LINE, x, y, x, y));
     super.posX = x;
     super.posY = y;
   }
@@ -130,10 +137,12 @@ class Line extends Drawable
     posX2 = x;
     posY2 = y;
     myCanvas.display();
-    line(super.posX, super.posY, posX2, posY2);
+    shap.addChild(createShape(LINE, super.posX, super.posY, posX2, posY2));
+    shape(shap);
   }
   void display(){
-    line(super.posX, super.posY, posX2, posY2);
+    shape(shap);
+    //line(super.posX, super.posY, posX2, posY2);
   }
 }
 
@@ -147,22 +156,24 @@ class Ellipse extends Drawable
   void mouseP(int x1, int y1){
     super.posX = x1;
     super.posY = y1;
+    //shap.addChild(createShape(ELLIPSE, x1, y1, 0, 0));
   }
   
   void mouseD(int x1, int y1){
     myCanvas.display();
-    ellipse(super.posX, super.posY, (x1 - super.posX)*2, (y1 - super.posY) * 2);
+    ellipse( super.posX, super.posY, (x1 - super.posX)* 2, (y1 - super.posY)* 2);
   }
   
   void mouseR(int x1, int y1){
     myCanvas.display();
     w = (x1 - super.posX) * 2;
     h = (y1 - super.posY) * 2;
-    ellipse(super.posX, super.posY, w, h);
+    shap.addChild(createShape(ELLIPSE, super.posX, super.posY, w, h));
+    shape(shap);
   }
   
   void display(){
-    ellipse(super.posX, super.posY, w, h);
+    shape(shap);
   }
 }
 
@@ -186,11 +197,12 @@ class Rectangle extends Drawable
    myCanvas.display();
    w = x1 - super.posX; 
    h = y1 - super.posY;
-   rect(super.posX, super.posY, w, h);
+   shap.addChild(createShape(RECT, super.posX, super.posY, w, h));
+   shape(shap);
   }
   
   void display(){
-    rect(super.posX, super.posY, w, h);
+    shape(shap);
   }
 
 }
@@ -202,6 +214,7 @@ class Text extends Drawable
   Text(){}
   
   void mouseP(int x, int y){
+    super.done = false;
     super.posX = x;
     super.posY = y;
   }
@@ -210,11 +223,15 @@ class Text extends Drawable
     myCanvas.display();
     fill(0);
     textSize(15);
-    if(c != BACKSPACE){
+    if(c != BACKSPACE && c != RETURN && c != ENTER){
     text += c;
   }
   else if(c == BACKSPACE && text.length() != 0){
     text = text.substring(0, text.length() - 1);
+  }
+  else if(c == RETURN || c == ENTER){
+    super.done = true;
+    text = "";
   }
   text(text, super.posX, super.posY); 
   }
