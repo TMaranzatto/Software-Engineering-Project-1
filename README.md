@@ -1,1 +1,3 @@
-# Software Engineering Project 1
+__Software Engineering Project 1: Paint++__
+
+This is a program to create unique images. 
