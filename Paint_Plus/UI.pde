@@ -41,6 +41,9 @@ class UI
     buttons.add(new Button("Ungroup_Button", startX + size * 1, startY, "Icons/Ungroup_Tool.png",0));
     buttons.add(new Button("Bucket_Button", startX + size * 2, startY, "Icons/Bucket_Tool.png",0));
     buttons.add(new Button("Magnifier_Button", startX + size * 3, startY, "Icons/Magnify_Tool.png",0));
+    buttons.add(new Button("Undo_Buttom", startX + size * 4, startY, "Icons/Undo_Tool.png", 0));
+    buttons.add(new Button("Save_Button", startX + size * 15, startY, "Icons/Save_Tool.png", 0));
+    
 }
   
   void display()
