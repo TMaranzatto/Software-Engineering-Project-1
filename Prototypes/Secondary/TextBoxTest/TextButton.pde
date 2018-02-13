@@ -31,10 +31,13 @@ class TextButton{
  }
  void update(Character k){
    if(this.isClicked == true){
-     if(k != BACKSPACE){
+     if(k >= 65 && k <= 122 || k == 32){
+      println("Input a number please"); 
+     }
+     else if(k != BACKSPACE){
        inputText += k;
      }
-     else if(inputText != null){
+     else if(k == BACKSPACE && inputText.length() != 0){
       inputText = inputText.substring(0, inputText.length() - 1);
      }
    }

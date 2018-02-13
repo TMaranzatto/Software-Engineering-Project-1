@@ -8,19 +8,17 @@ void setup(){
  a.add("rotate");
  a.add("scale");
  a.add("z");
+ a.add("bullshit");
  t = new TextBox(200,200, 500, 200, a);
 }
-
 
 void mousePressed(){
   t.mouseUpdate(mouseX,mouseY);
 }
 
-
 void keyPressed(){
   t.keyUpdate(key);
 }
-
 
 void draw(){
   t.display();
