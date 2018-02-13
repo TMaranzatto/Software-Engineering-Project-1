@@ -39,7 +39,8 @@ class UI
     startY += barHeight + size;
     buttons.add(new Button("Group_Button", startX +  size * 0, startY, "Icons/Group_Tool.png",0));
     buttons.add(new Button("Ungroup_Button", startX + size * 1, startY, "Icons/Ungroup_Tool.png",0));
-    buttons.add(new Button("Bucket_Tool", startX + size * 2, startY, "Icons/Bucket_Tool.png",0));
+    buttons.add(new Button("Bucket_Button", startX + size * 2, startY, "Icons/Bucket_Tool.png",0));
+    buttons.add(new Button("Magnifier_Button", startX + size * 3, startY, "Icons/Magnify_Tool.png",0));
 }
   
   void display()
