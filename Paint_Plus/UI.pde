@@ -19,7 +19,7 @@ class UI
     buttons.add(new Button("Line_Tool", startX, startY + size * 2, "Icons/Line_Tool.png",0));
     buttons.add(new Button("Curve_Tool", startX, startY + size * 3, "Icons/Curve_Tool.png",0));
     buttons.add(new Button("Ellipse_Tool", startX, startY + size * 4, "Icons/Ellipse_Tool.png",0));
-    buttons.add(new Button("Rect_Tool", startX, startY + size * 5, "Icons/Rect_Tool.jpg",0));
+    buttons.add(new Button("Rectangle_Tool", startX, startY + size * 5, "Icons/Rect_Tool.jpg",0));
     buttons.add(new Button("Polygon_Tool", startX, startY + size * 6, "Icons/Polygon_Tool.png",0));
     buttons.add(new Button("Text_Tool", startX, startY + size * 7, "Icons/Text_Tool.png",0));
   
