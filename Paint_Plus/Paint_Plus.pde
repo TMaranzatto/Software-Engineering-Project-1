@@ -62,7 +62,10 @@ void mouseClicked()
 
 void mousePressed()  
 {
-  shape = new Line();
+  shape = new Pencil();
+  //this is problematic!!!
+  //some shapes need multiple mouse presses for them to be constructed
+  //ie polygons and curves
   myCanvas.add(shape);
   shape.mouseP(mouseX, mouseY);
 }
@@ -75,4 +78,9 @@ void mouseDragged()
 void mouseReleased()
 {
   shape.mouseR(mouseX, mouseY);
+  //myCanvas.delete(shape);
+}
+
+void keyTyped(){
+  shape.keyT(key);
 }

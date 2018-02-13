@@ -6,7 +6,7 @@ void setup()
 {
   size(400,400);
   background(255);
-  noSmooth(); //should be used here
+  //noSmooth(); //should be used here
 }
 
 void draw()
@@ -14,7 +14,7 @@ void draw()
 
 void mousePressed()
 {
-  point(mouseX, mouseY);
+  //point(mouseX, mouseY);
   prevX = mouseX;
   prevY = mouseY;
 }

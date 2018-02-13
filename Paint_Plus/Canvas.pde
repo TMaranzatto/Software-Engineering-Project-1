@@ -13,8 +13,13 @@ class Canvas
   }
   
   void add(Drawable shape){
-    println("Canvas add shape");
+    println("Canvas added shape");
     shapes.add(shape);
+  }
+  
+  //testing how your canvas implementation works
+  void delete(Drawable shape){
+    shapes.remove(shape);
   }
   
   void display(){
