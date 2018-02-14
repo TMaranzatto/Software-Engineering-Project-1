@@ -142,7 +142,11 @@ class Line extends Drawable //DONE
   }
   
   void display(){
-    if(super.done){line(super.posX, super.posY, posX2, posY2);}
+    if(super.done){
+      stroke(super.col);
+      fill(super.col);
+      line(super.posX, super.posY, posX2, posY2);
+    }
   }
 }
 
@@ -151,6 +155,7 @@ class Curve extends Drawable
 {
   
 }
+
 
 class Ellipse extends Drawable
 {
@@ -181,9 +186,14 @@ class Ellipse extends Drawable
   }
   
   void display(){
-    if(super.done){ellipse(super.posX, super.posY, w, h);}
+    if(super.done){
+      stroke(super.col);
+      fill(super.col);
+      ellipse(super.posX, super.posY, w, h);
+    }
   }
 }
+
 
 class Rect extends Drawable
 {
@@ -193,8 +203,11 @@ class Rect extends Drawable
   Rect(){}
   
   void mouseP(int x1, int y1){
+    stroke(super.col);
+    fill(super.col);
     super.posX = x1;
     super.posY = y1;
+    point(super.posX, super.posY);
   }
 
   void mouseD(int x1, int y1){
@@ -203,15 +216,19 @@ class Rect extends Drawable
   }
 
   void mouseR(int x1, int y1){
-   myCanvas.cacheDisplay();
+   super.done = true;
    w = x1 - super.posX; 
    h = y1 - super.posY;
-   super.shap.addChild(createShape(RECT, super.posX, super.posY, w, h));
-   shape(super.shap);
+   myCanvas.cacheDisplay();
+   rect(super.posX, super.posY, w, h);
   }
   
   void display(){
-    shape(super.shap);
+    if(super.done){
+      stroke(super.col);
+      fill(super.col);
+      rect(super.posX, super.posY, w, h);
+    }
   }
 
 }
