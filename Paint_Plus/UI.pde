@@ -50,6 +50,7 @@ class UI
   
   void display()
   {
+    stroke(color(0));
     drawPropertiesBar(); //top
     drawNavigationBar(); //bottom
     drawToolBar();       //left
