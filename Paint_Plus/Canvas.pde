@@ -1,36 +1,47 @@
-class Canvas
+import java.util.LinkedList;
+
+public class Canvas
 {
   private int posX, posY;
   private int w, h;
-  private ArrayList<Drawable> shapes;
+  private ArrayList<Drawable>  shapes;
+  private PImage canvasCache;
   
   Canvas(){
-    shapes = new ArrayList<Drawable>();
+    shapes = new ArrayList<Drawable>(100); //Array list with initial capacity
     posX = 51;
     posY = 52;
     w = width - 102;
-    h = height - 104;
+    h = height - 102;
+    cacheState();
   }
   
-  void add(Drawable shape){
-    //println("Canvas added shape");
+  public void add(Drawable shape){
     shapes.add(shape);
+    cacheState();
   }
   
-  //testing how your canvas implementation works
-  void delete(Drawable shape){
+  public void delete(Drawable shape){
     shapes.remove(shape);
+    rawDisplay();
+    cacheState();
   }
   
-  void display(){
+  private void cacheState(){
+    canvasCache = get(posX, posY, w, h);
+  }
+  
+  public void cacheDisplay(){
+    image(canvasCache, posX, posY);
+  }
+  
+  public void rawDisplay(){
     fill(255);
     noStroke();
     rect(posX, posY, w, h);
     stroke(1);
-    //println("Canvas display");
     for(int i = 0; i < shapes.size() - 1; i++)
     {
-      //println(shapes.size());
       shapes.get(i).display();
     }
   }
