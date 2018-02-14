@@ -56,11 +56,12 @@ class Pencil extends Drawable
      super.posY = y;
   }
   
+  void mouseR(int x, int y){
+  
+  }
   
   void display(){
-    //myCanvas.cacheDisplay();
     shape(super.shap);
-    //super.shap = createShape(GROUP);
   }
   
 }
@@ -153,14 +154,76 @@ class Line extends Drawable //DONE
 
 class Curve extends Drawable
 {
+  private int turn;
+  private int x1, x3, x4;
+  private int y1, y3, y4;
+  private int middleX, middleY;
+  private int scale;
   
+  Curve(){
+    turn = 1;
+    x1 = x3 = x4 = 0;
+    y1 = y3 = y4 = 0;
+    middleX = middleY = 0;
+    scale = 6;
+  }
+  
+  void mouseP(int x, int y){
+    stroke(super.col);
+    fill(super.col);
+    if(turn == 1){
+      super.posX = x;
+      super.posY = y;
+      point(super.posX, super.posY);
+    }
+    else if(turn == 2){
+      x1 = x4 = mouseX - middleX;
+      y1 = y4 = mouseY - middleY; 
+      myCanvas.cacheDisplay();
+      curve(x1 * scale, y1 * scale, super.posX, super.posY, x3, y3, x4 * scale, y4 * scale);
+    }
+  }
+  
+  void mouseD(int x, int y){
+    fill(super.col);
+    stroke(super.col);
+    if(turn == 1){
+      myCanvas.cacheDisplay();
+      line(super.posX, super.posY, x, y);
+    }
+    else if(turn == 2){
+      x1 = x4 = x - middleX;
+      y1 = y4 = y - middleY; 
+      myCanvas.cacheDisplay();
+      curve(x1 * scale, y1 * scale, super.posX, super.posY, x3, y3, x4 * scale, y4 * scale);
+    }
+  }
+  
+  void mouseR(int x, int y){
+    fill(super.col);
+    stroke(super.col);
+    if(turn == 1){
+      x3 = x; 
+      y3 = y;
+      line(super.posX, super.posY, x3, y3);
+      middleX = (super.posX + x3) / 2;
+      middleY = (super.posY + y3) / 2;
+      turn++;
+    }
+    else if(turn == 2){
+      x1 = x4 = x - middleX;
+      y1 = y4 = y - middleY; 
+      super.done = true;
+      myCanvas.cacheDisplay();
+      curve(x1 * scale, y1 * scale, super.posX, super.posY, x3, y3, x4 * scale, y4 * scale);
+    }
+  }
 }
 
 
-class Ellipse extends Drawable
+class Ellipse extends Drawable //DONE
 {
-  float x = 0, y = 0;
-  float w = 0, h = 0;
+  private int w, h;
   
   Ellipse(){}
   
@@ -195,10 +258,9 @@ class Ellipse extends Drawable
 }
 
 
-class Rect extends Drawable
+class Rect extends Drawable  //DONE
 {
-  float x = 0, y = 0;
-  float w = 0, h = 0;
+  private int w, h;
   
   Rect(){}
   

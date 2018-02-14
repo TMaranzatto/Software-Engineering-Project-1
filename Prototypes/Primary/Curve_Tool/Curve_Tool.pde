@@ -1,6 +1,5 @@
 //dynamic implementation for curve
 
-// !!! Change the parts to click and drag scheme
 
 
 int turn = 1; //no idea yet
