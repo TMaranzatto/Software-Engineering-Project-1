@@ -1,7 +1,7 @@
-class Button
+public class Button
 {
   //important
-  private String name;
+  private Name name;
   private int posX, posY;
   private boolean selected;
   //details
@@ -10,7 +10,7 @@ class Button
   private color col;
   private boolean isColor;
   
-  Button(String n, int x, int y, String path, int c)
+  Button(Name n, int x, int y, String path, int c)
   {
     name = n;
     posX = x;
@@ -53,7 +53,13 @@ class Button
   void display(){
     if(isColor == false)
     {
+      noStroke();
+      if(selected){
+      fill(150);
+      rect(posX, posY, size, size);
+      }
       image(icon, posX, posY, size, size);
+      stroke(1);
     }
     else
     {
@@ -64,18 +70,9 @@ class Button
     } 
   }
   
-  String getName(){
-  return name;
-  }
-  
-  boolean overlaps(int x, int y){
-    if(x >= posX && x <= posX + size){return true;}
-    else if(y >= posY && y <= posY + size){return true;}
-    return false;
-  }
-  
   void select(){ selected = true;}
   void deSelect(){ selected = false;}
   boolean isSelected(){ return selected;}
+  Name getName(){return name;}
   
 }
