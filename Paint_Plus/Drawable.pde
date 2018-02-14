@@ -1,16 +1,20 @@
 public class Drawable
 {
   
-  private int posX = 0;
-  private int posY = 0;
+  private int posX;
+  private int posY;
   private int rotation;
   private int scale;
-  private boolean done = false;
-  private PShape shap = createShape(GROUP);
+  private color col;
+  private boolean done;
+  private PShape shap;
   
   public Drawable(){
-    this.rotation = 100;
-    this.scale = 100;
+    rotation = 100;
+    scale = 100;
+    col = color(myColor);
+    done = false;
+    shap = createShape(GROUP);
   }
   
   void mouseP(int x, int y){}
@@ -18,7 +22,9 @@ public class Drawable
   void mouseR(int x, int y){}
   void display(){}
   void keyT(Character c){}
+  
   boolean isDone(){return done;}
+  color getColor(){return col;}
 }
 
 
@@ -108,7 +114,7 @@ class Paint extends Drawable
 }
 
 
-class Line extends Drawable
+class Line extends Drawable //DONE
 {
   private int posX2;
   private int posY2;
@@ -116,7 +122,7 @@ class Line extends Drawable
   Line(){}
   
   void mouseP(int x, int y){
-    stroke(myColor);
+    stroke(super.col);
     super.posX = x;
     super.posY = y;
     point(super.posX, super.posY);
@@ -136,7 +142,7 @@ class Line extends Drawable
   }
   
   void display(){
-    line(super.posX, super.posY, posX2, posY2);
+    if(super.done){line(super.posX, super.posY, posX2, posY2);}
   }
 }
 
@@ -154,26 +160,28 @@ class Ellipse extends Drawable
   Ellipse(){}
   
   void mouseP(int x1, int y1){
+    stroke(super.col);
+    fill(super.col);
     super.posX = x1;
     super.posY = y1;
-    //super.super.shap.addChild(createShape(ELLIPSE, x1, y1, 0, 0));
+    point(super.posX, super.posY);
   }
   
   void mouseD(int x1, int y1){
     myCanvas.cacheDisplay();
-    ellipse( super.posX, super.posY, (x1 - super.posX)* 2, (y1 - super.posY)* 2);
+    ellipse(super.posX, super.posY, (x1 - super.posX)* 2, (y1 - super.posY)* 2);
   }
   
   void mouseR(int x1, int y1){
-    myCanvas.cacheDisplay();
     w = (x1 - super.posX) * 2;
     h = (y1 - super.posY) * 2;
-    super.shap.addChild(createShape(ELLIPSE, super.posX, super.posY, w, h));
-    shape(super.shap);
+    super.done = true;
+    myCanvas.cacheDisplay();
+    ellipse(super.posX, super.posY, w, h);
   }
   
   void display(){
-    shape(super.shap);
+    if(super.done){ellipse(super.posX, super.posY, w, h);}
   }
 }
 

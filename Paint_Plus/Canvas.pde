@@ -35,13 +35,15 @@ public class Canvas
     image(canvasCache, posX, posY);
   }
   
-  public void rawDisplay(){
+  public void rawDisplay(){ //needs some work
     fill(255);
     noStroke();
     rect(posX, posY, w, h);
     stroke(1);
     for(int i = 0; i < shapes.size() - 1; i++)
     {
+      fill(shapes.get(i).getColor());
+      stroke(shapes.get(i).getColor());
       shapes.get(i).display();
     }
   }
