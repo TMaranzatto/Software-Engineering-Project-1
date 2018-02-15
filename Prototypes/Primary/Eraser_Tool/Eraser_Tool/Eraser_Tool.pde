@@ -26,6 +26,7 @@ void mousePressed()
 
 void mouseDragged()
 { 
+  strokeWeight(10);
   stroke(255);
   line(prevX, prevY, mouseX, mouseY);
   prevX = mouseX;

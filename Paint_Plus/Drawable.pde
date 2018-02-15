@@ -6,6 +6,7 @@ public class Drawable
   private int rotation;
   private int scale;
   private color col;
+  private int white;
   private boolean done;
   private PShape shap;
   
@@ -13,6 +14,7 @@ public class Drawable
     rotation = 100;
     scale = 100;
     col = color(myColor);
+    white = 255;
     done = false;
     shap = createShape(GROUP);
   }
@@ -44,6 +46,36 @@ class Pencil extends Drawable
   void mouseD(int x, int y){
     stroke(super.col);
     if(super.posX != 0 && super.posY != 0){
+      line(super.posX, super.posY, x, y);
+    }
+     super.posX = x;
+     super.posY = y;
+  }
+  
+  void mouseR(int x, int y){
+    super.done = true;  
+  }
+  
+  void display(){
+    
+  }
+  
+}
+
+class Eraser extends Drawable
+{ 
+  Eraser(){}
+  void mouseP(int x, int y){
+    super.posX = x;
+    super.posY = y;
+    //line(x, y, x, y);
+    point(x,y);
+  }
+  
+  void mouseD(int x, int y){
+    stroke(super.white);
+    if(super.posX != 0 && super.posY != 0){
+      strokeWeight(15);
       line(super.posX, super.posY, x, y);
     }
      super.posX = x;

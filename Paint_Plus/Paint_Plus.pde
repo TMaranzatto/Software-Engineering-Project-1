@@ -85,6 +85,7 @@ void assignShape(){
   else if(toolSelected == Name.RECT_TOOL)   {myShape = new Rect();}
   else if(toolSelected == Name.POLYGON_TOOL){myShape = new Polygon();}
   else if(toolSelected == Name.TEXT_TOOL)   {myShape = new Text();}
+  else if(toolSelected == Name.ERASER_TOOL) {myShape = new Eraser();}
 }
 
 void mousePressed()
