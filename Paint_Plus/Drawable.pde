@@ -259,7 +259,7 @@ class Rect extends Drawable  //DONE
   
   void mouseP(int x1, int y1){
     stroke(super.col);
-    fill(super.col);
+    fill(255, 255, 255, 0);
     super.posX = x1;
     super.posY = y1;
     point(super.posX, super.posY);
