@@ -36,7 +36,7 @@ class floodFill extends Drawable{
   //0 north -- 1 east -- 2 south -- 3 west
   floodFill(){}
   
-  void flood(int dir, color c, color rep){
+  void flood(int x, int y, color rep){
     
   }
   
