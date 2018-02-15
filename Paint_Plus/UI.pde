@@ -35,6 +35,7 @@ class UI
     buttons.add(new Button(Name.SAVE_TOOL, startX + size * 15, startY, "data/Save_Tool.png", 0));
     buttons.add(new Button(Name.CURSOR_TOOL, startX + size * 5, startY, "data/Click_Tool.png", 0));
     buttons.add(new Button(Name.PAN_TOOL, startX + size * 6, startY, "data/Pan_Tool.png", 0));
+    buttons.add(new Button(Name.ERASER_TOOL, startX + size*7 , startY, "data/Eraser_Tool.png",0));
 
     //right toolbar
     startX = width - (size + 1) + 1;
