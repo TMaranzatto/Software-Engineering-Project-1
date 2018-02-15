@@ -92,7 +92,7 @@ class UI
     int startX = width - (size + 1);
     int startY = (height - barHeight) / 2;
     //color select area
-    rect(startX, startY, barWidth, barHeight);
+    //rect(startX, startY, barWidth, barHeight);
   }
 
   private void drawPropertiesBar()

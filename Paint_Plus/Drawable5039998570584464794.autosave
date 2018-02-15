@@ -6,8 +6,6 @@ public class Drawable
   private int rotation;
   private int scale;
   private color col;
-  private int white;
-  private int eraser_size;
   private boolean done;
   private PShape shap;
   
@@ -15,8 +13,6 @@ public class Drawable
     rotation = 100;
     scale = 100;
     col = color(myColor);
-    white = 255;
-    eraser_size = 15;
     done = false;
     shap = createShape(GROUP);
   }
@@ -32,20 +28,6 @@ public class Drawable
 }
 
 
-class floodFill extends Drawable{
-  //0 north -- 1 east -- 2 south -- 3 west
-  floodFill(){}
-  
-  void flood(int dir, color c, color rep){
-    
-  }
-  
-  void mouseP(int x, int y){
-   stroke(super.col);
-   loadPixels();
-   
-  }
-}
 
 class Pencil extends Drawable
 { 
@@ -73,42 +55,9 @@ class Pencil extends Drawable
   }
   
   void display(){
-    
+    myCanvas.cacheDisplay();
   }
   
-}
-
-class Eraser extends Drawable
-{ 
-  int eraser_size = 15;
-  int eraser_color = 255;
-  Eraser(){}
-  void mouseP(int x, int y){
-    super.posX = x;
-    super.posY = y;
-    //line(x, y, x, y);
-    point(x,y);
-  }
-  
-  void mouseD(int x, int y){
-    stroke(eraser_color);
-    if(super.posX != 0 && super.posY != 0){
-      strokeWeight(eraser_size);
-      line(super.posX, super.posY, x, y);
-    }
-     super.posX = x;
-     super.posY = y;
-  }
-  
-  void mouseR(int x, int y){
-    super.done = true; 
-    strokeWeight(1);
-    stroke(0);
-  }
-  
-  void display(){
-    
-  }
 }
 
 
@@ -153,7 +102,7 @@ class Paint extends Drawable
   }
   
   void display(){
-    
+    myCanvas.cacheDisplay();
   }
   
 }
@@ -187,6 +136,7 @@ class Line extends Drawable //DONE
   }
   
   void display(){
+    myCanvas.cacheDisplay();
     if(super.done){
       stroke(super.col);
       fill(super.col);
@@ -271,13 +221,11 @@ class Curve extends Drawable
 class Ellipse extends Drawable //DONE
 {
   private int w, h;
-  
   Ellipse(){}
   
   void mouseP(int x1, int y1){
-    ellipseMode(CENTER);
-    stroke(super.col);
     noFill();
+    stroke(super.col);
     //fill(super.col);
     super.posX = x1;
     super.posY = y1;
@@ -286,12 +234,13 @@ class Ellipse extends Drawable //DONE
   
   void mouseD(int x1, int y1){
     ellipseMode(CENTER);
+    noFill();
     myCanvas.cacheDisplay();
     ellipse(super.posX, super.posY, (x1 - super.posX)* 2, (y1 - super.posY)* 2);
   }
   
   void mouseR(int x1, int y1){
-    ellipseMode(CENTER);
+    noFill();
     w = (x1 - super.posX) * 2;
     h = (y1 - super.posY) * 2;
     super.done = true;
@@ -300,9 +249,10 @@ class Ellipse extends Drawable //DONE
   }
   
   void display(){
+    myCanvas.cacheDisplay();
     if(super.done){
-      stroke(super.col);
       noFill();
+      stroke(super.col);
       //fill(super.col);
       ellipse(super.posX, super.posY, w, h);
     }
@@ -338,6 +288,7 @@ class Rect extends Drawable  //DONE
   }
   
   void display(){
+    myCanvas.cacheDisplay();
     if(super.done){
       stroke(super.col);
       fill(super.col);
@@ -395,7 +346,8 @@ class Polygon extends Drawable
   }
   
   void display(){
-    }
+    myCanvas.cacheDisplay();
+  }
 
 }
 
@@ -414,7 +366,7 @@ class Text extends Drawable
   
   void keyT(Character c){
     myCanvas.cacheDisplay();
-    fill(super.col);
+    fill(0);
     textSize(15);
   if(c != BACKSPACE && c != RETURN && c != ENTER){
     text += c;
@@ -434,6 +386,7 @@ class Text extends Drawable
   }
   
   void display(){
+    myCanvas.cacheDisplay();
     fill(0);
     text(text, super.posX, super.posY); 
   }
