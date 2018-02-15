@@ -38,7 +38,7 @@ class UI
     buttons.add(new Button(Name.ERASER_TOOL, startX + size*7 , startY, "data/Eraser_Tool.png",0));
 
     //right toolbar
-    startX = width - (size + 1) + 1;
+    startX = width - (size + 1);
     startY = (height - barHeight) / 2 + 1;
     buttons.add(new Button(Name.WHITE_COLOR, startX, startY + size * 0, "none", 1));
     buttons.add(new Button(Name.BLACK_COLOR, startX, startY + size * 1, "none", 2));
