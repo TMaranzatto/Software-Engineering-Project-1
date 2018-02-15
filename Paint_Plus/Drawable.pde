@@ -33,9 +33,7 @@ class Pencil extends Drawable
 { 
   //these cause issues... we need to create these as dynamic psuper.shapes
   //this works but crashes for more than one pencil on the canvas, so... it doesn't work
-  Pencil(){
-    stroke(1);
-  }
+  Pencil(){}
   void mouseP(int x, int y){
     super.posX = x;
     super.posY = y;
