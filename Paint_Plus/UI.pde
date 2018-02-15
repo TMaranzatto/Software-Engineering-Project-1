@@ -4,6 +4,7 @@ class UI
 {
 
   private ArrayList<Button> buttons;
+  private Button color_window;
 
   UI()
   {
@@ -22,7 +23,7 @@ class UI
     buttons.add(new Button(Name.RECT_TOOL, startX, startY + size * 5, "data/Rect_Tool.png",0));
     buttons.add(new Button(Name.POLYGON_TOOL, startX, startY + size * 6, "data/Polygon_Tool.png",0));
     buttons.add(new Button(Name.TEXT_TOOL, startX, startY + size * 7, "data/Text_Tool.png",0));
-    
+
     //bottom toolbar
     startX = 0;
     startY += barHeight + size;
@@ -46,7 +47,18 @@ class UI
     buttons.add(new Button(Name.YELLOW_COLOR, startX, startY + size * 5, "none", 6));
     buttons.add(new Button(Name.CYAN_COLOR, startX, startY + size * 6, "none", 7));
     buttons.add(new Button(Name.MAGENTA_COLOR, startX, startY + size * 7, "none", 8));
-}
+
+    //top toolbar
+    startX = 0;
+    startY = 0;
+    color_window = new Button(Name.COLOR_WINDOW, startX, startY + size * 0, "none", 1);
+
+    buttons.add(color_window);
+  }
+
+  void setColorWindow(color c) {
+    color_window.setColor(c);
+  }
 
   void display()
   {

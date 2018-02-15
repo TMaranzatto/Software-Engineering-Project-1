@@ -10,7 +10,7 @@ void setup()
 {
   size(800,600);   //window size
   background(255); //white canvas
-  
+
   myUI = new UI();
   myCanvas = new Canvas();
   myShape = null;
@@ -30,7 +30,7 @@ void mouseClicked()
   int barHeight = 401;
   int startY = (height - barHeight) / 2 + 1;
 
-  
+
   //check for buttons
   if(mouseX <= size && mouseX >= 0 && mouseY < barHeight + startY && mouseY > size) //on left side
   {
@@ -69,7 +69,8 @@ void mouseClicked()
   {
     //code for selecting the drawable put here
   }
-  
+
+  myUI.setColorWindow(myColor);
   myUI.selectTool(toolSelected);
   myUI.display();
 }
@@ -85,7 +86,7 @@ void assignShape(){
   else if(toolSelected == Name.TEXT_TOOL)   {myShape = new Text();}
 }
 
-void mousePressed()  
+void mousePressed()
 {
   //check if it's pressed on a canvas:
   if(mouseX > 51 && mouseX < width - 51 && mouseY > 51 && mouseY < height - 51){
@@ -125,7 +126,7 @@ void mouseReleased()
 
 
 void keyTyped(){
-  
+
   if(myShape != null){
     if(toolSelected == Name.TEXT_TOOL){
       if(myShape.done == false){

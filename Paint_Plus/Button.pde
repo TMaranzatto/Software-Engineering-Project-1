@@ -9,7 +9,7 @@ public class Button
   private int size;
   private color col;
   private boolean isColor;
-  
+
   Button(Name n, int x, int y, String path, int c)
   {
     name = n;
@@ -49,7 +49,7 @@ public class Button
       }
     }
   }
-  
+
   void display(){
     if(isColor == false)
     {
@@ -67,12 +67,16 @@ public class Button
       noStroke();
       rect(posX, posY, size, size);
       stroke(1);
-    } 
+    }
   }
-  
+
+  void setColor(color c) {
+    col = c;
+  }
+
   void select(){ selected = true;}
   void deSelect(){ selected = false;}
   boolean isSelected(){ return selected;}
   Name getName(){return name;}
-  
+
 }
