@@ -36,6 +36,7 @@ class TextBox{
    for(int i = 0; i < inputs.size(); i++){
      if(inputs.get(i).isClicked == true){
       inputs.get(i).update(c); 
+      println(inputs.get(i).getDataAsInt());
      }
      else{
        continue;

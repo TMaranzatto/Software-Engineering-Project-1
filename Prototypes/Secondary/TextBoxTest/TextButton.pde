@@ -21,6 +21,20 @@ class TextButton{
    this.isClicked = s;
  }
  
+ String getDataAsString(){
+   return this.inputText;
+ }
+ 
+ int getDataAsInt(){
+   try{
+    return Integer.parseInt(this.inputText); 
+   }
+   catch(NumberFormatException ex){
+     println("you put an invalid integer or tried to draw off the screen");
+     return -1;
+   }
+ }
+ 
  boolean isMouseHere(int inx, int iny){
   if(inx > x && inx < x + wid){
    if(iny > y && iny < y + hei){
@@ -31,7 +45,7 @@ class TextButton{
  }
  void update(Character k){
    if(this.isClicked == true){
-     if(k >= 65 && k <= 122 || k == 32){
+     if(k >= 65 && k <= 122 || k == 32 || k == RETURN || k == ENTER){
       println("Input a number please"); 
      }
      else if(k != BACKSPACE){
