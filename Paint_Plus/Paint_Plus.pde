@@ -63,6 +63,7 @@ void mouseClicked()
     else if(mouseX >= startX && mouseX <= size * 5){ toolSelected = Name.UNDO_TOOL;}
     else if(mouseX >= startX && mouseX <= size * 6){ toolSelected = Name.CURSOR_TOOL;}
     else if(mouseX >= startX && mouseX <= size * 7){ toolSelected = Name.PAN_TOOL;}
+    else if(mouseX >= startX && mouseX <= size * 8){ toolSelected = Name.ERASER_TOOL;}
     else if(mouseX >= width - size && mouseX <= width){ toolSelected = Name.SAVE_TOOL;}
   }
   else if(toolSelected == Name.CURSOR_TOOL) //if cursor tool is selected
