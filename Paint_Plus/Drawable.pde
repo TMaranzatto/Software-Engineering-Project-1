@@ -197,6 +197,7 @@ class Curve extends Drawable
     //fill(super.col);
     stroke(super.col);
     if(turn == 1){
+      //myCanvas.cacheState();
       x3 = x; 
       y3 = y;
       //line(super.posX, super.posY, x3, y3);
@@ -205,10 +206,11 @@ class Curve extends Drawable
       turn++;
     }
     else if(turn == 2){
+      //myCanvas.cacheDisplay();
       x1 = x4 = x - middleX;
       y1 = y4 = y - middleY; 
       super.done = true;
-      myCanvas.cacheDisplay();
+      //myCanvas.cacheDisplay();
       curve(x1 * scale, y1 * scale, super.posX, super.posY, x3, y3, x4 * scale, y4 * scale);
     }
   }
@@ -291,7 +293,54 @@ class Rect extends Drawable  //DONE
 
 class Polygon extends Drawable
 {
+  private int x0, y0;
+  private boolean isfirst = true;
   
+  Polygon(){}
+  
+  void mouseP(int x1, int y1){
+    //myCanvas.cacheDisplay();
+    stroke(super.col);
+    if(isfirst == true){
+     //print("first");
+     this.x0 = x1;
+     this.y0 = y1;
+     point(x1, y1);
+     super.posX = x1;
+     super.posY = y1;
+     isfirst = false;
+    }
+    else if(dist(x0,y0,x1,y1) > 50){
+      //super.posX = x1;
+      //super.posY = y1;
+      line(super.posX, super.posY, x1, y1);
+      super.posX = x1;
+      super.posY = y1;
+    }
+    else{
+      line(super.posX, super.posY, x0, y0);
+      super.done = true;
+    }
+  }
+
+  void mouseR(int x1, int y1){
+   //myCanvas.cacheDisplay();
+   if(super.done == false){
+   line(super.posX, super.posY, x1, y1);
+   super.posX = x1;
+   super.posY = y1;
+   }
+  }
+  
+  void keyT(Character t){
+   if(t == ENTER || t == RETURN){
+      super.done = true;
+   }
+  }
+  
+  void display(){
+    }
+
 }
 
 class Text extends Drawable
@@ -301,6 +350,7 @@ class Text extends Drawable
   Text(){}
   
   void mouseP(int x, int y){
+    text = "";
     super.done = false;
     super.posX = x;
     super.posY = y;
@@ -310,17 +360,21 @@ class Text extends Drawable
     myCanvas.cacheDisplay();
     fill(0);
     textSize(15);
-    if(c != BACKSPACE && c != RETURN && c != ENTER){
+  if(c != BACKSPACE && c != RETURN && c != ENTER){
     text += c;
+    text(text, super.posX, super.posY);
   }
   else if(c == BACKSPACE && text.length() != 0){
+    myCanvas.cacheDisplay();
     text = text.substring(0, text.length() - 1);
+    text(text, super.posX, super.posY); 
   }
   else if(c == RETURN || c == ENTER){
     super.done = true;
+    text(text, super.posX, super.posY); 
     text = "";
   }
-  text(text, super.posX, super.posY); 
+  //text(text, super.posX, super.posY); 
   }
   
   void display(){
