@@ -1,40 +1,40 @@
 //draws UI that scales to the window size
 
-class UI 
+class UI
 {
 
   private ArrayList<Button> buttons;
-  
+
   UI()
   {
     buttons = new ArrayList<Button>();
-    
+
     //left toolbar
     int size = 50;
     int barHeight = 401;
     int startX = 0;
     int startY = (height - barHeight) / 2 + 1;
-    buttons.add(new Button(Name.PENCIL_TOOL, startX, startY +  size * 0, "Icons/Pencil_Tool.png",0));
-    buttons.add(new Button(Name.PAINT_TOOL, startX, startY + size * 1, "Icons/Paint_Tool.png",0));
-    buttons.add(new Button(Name.LINE_TOOL, startX, startY + size * 2, "Icons/Line_Tool.png",0));
-    buttons.add(new Button(Name.CURVE_TOOL, startX, startY + size * 3, "Icons/Curve_Tool.png",0));
-    buttons.add(new Button(Name.ELLIPSE_TOOL, startX, startY + size * 4, "Icons/Ellipse_Tool.png",0));
-    buttons.add(new Button(Name.RECT_TOOL, startX, startY + size * 5, "Icons/Rect_Tool.png",0));
-    buttons.add(new Button(Name.POLYGON_TOOL, startX, startY + size * 6, "Icons/Polygon_Tool.png",0));
-    buttons.add(new Button(Name.TEXT_TOOL, startX, startY + size * 7, "Icons/Text_Tool.png",0));
+    buttons.add(new Button(Name.PENCIL_TOOL, startX, startY +  size * 0, "data/Pencil_Tool.png",0));
+    buttons.add(new Button(Name.PAINT_TOOL, startX, startY + size * 1, "data/Paint_Tool.png",0));
+    buttons.add(new Button(Name.LINE_TOOL, startX, startY + size * 2, "data/Line_Tool.png",0));
+    buttons.add(new Button(Name.CURVE_TOOL, startX, startY + size * 3, "data/Curve_Tool.png",0));
+    buttons.add(new Button(Name.ELLIPSE_TOOL, startX, startY + size * 4, "data/Ellipse_Tool.png",0));
+    buttons.add(new Button(Name.RECT_TOOL, startX, startY + size * 5, "data/Rect_Tool.png",0));
+    buttons.add(new Button(Name.POLYGON_TOOL, startX, startY + size * 6, "data/Polygon_Tool.png",0));
+    buttons.add(new Button(Name.TEXT_TOOL, startX, startY + size * 7, "data/Text_Tool.png",0));
     
     //bottom toolbar
     startX = 0;
     startY += barHeight + size;
-    buttons.add(new Button(Name.UNGROUP_TOOL, startX +  size * 0, startY, "Icons/Group_Tool.png",0));
-    buttons.add(new Button(Name.GROUP_TOOL, startX + size * 1, startY, "Icons/Ungroup_Tool.png",0));
-    buttons.add(new Button(Name.BUCKET_TOOL, startX + size * 2, startY, "Icons/Bucket_Tool.png",0));
-    buttons.add(new Button(Name.ZOOM_TOOL, startX + size * 3, startY, "Icons/Magnify_Tool.png",0));
-    buttons.add(new Button(Name.UNDO_TOOL, startX + size * 4, startY, "Icons/Undo_Tool.png", 0));
-    buttons.add(new Button(Name.SAVE_TOOL, startX + size * 15, startY, "Icons/Save_Tool.png", 0));
-    buttons.add(new Button(Name.CURSOR_TOOL, startX + size * 5, startY, "Icons/Click_Tool.png", 0));
-    buttons.add(new Button(Name.PAN_TOOL, startX + size * 6, startY, "Icons/Pan_Tool.png", 0));   
-    
+    buttons.add(new Button(Name.UNGROUP_TOOL, startX +  size * 0, startY, "data/Group_Tool.png",0));
+    buttons.add(new Button(Name.GROUP_TOOL, startX + size * 1, startY, "data/Ungroup_Tool.png",0));
+    buttons.add(new Button(Name.BUCKET_TOOL, startX + size * 2, startY, "data/Bucket_Tool.png",0));
+    buttons.add(new Button(Name.ZOOM_TOOL, startX + size * 3, startY, "data/Magnify_Tool.png",0));
+    buttons.add(new Button(Name.UNDO_TOOL, startX + size * 4, startY, "data/Undo_Tool.png", 0));
+    buttons.add(new Button(Name.SAVE_TOOL, startX + size * 15, startY, "data/Save_Tool.png", 0));
+    buttons.add(new Button(Name.CURSOR_TOOL, startX + size * 5, startY, "data/Click_Tool.png", 0));
+    buttons.add(new Button(Name.PAN_TOOL, startX + size * 6, startY, "data/Pan_Tool.png", 0));
+
     //right toolbar
     startX = width - (size + 1) + 1;
     startY = (height - barHeight) / 2 + 1;
@@ -47,7 +47,7 @@ class UI
     buttons.add(new Button(Name.CYAN_COLOR, startX, startY + size * 6, "none", 7));
     buttons.add(new Button(Name.MAGENTA_COLOR, startX, startY + size * 7, "none", 8));
 }
-  
+
   void display()
   {
     stroke(color(0));
@@ -60,7 +60,7 @@ class UI
       buttons.get(i).display();
     }
   }
-  
+
   private void drawToolBar()
   {
     int barWidth = 51;
@@ -70,7 +70,7 @@ class UI
     fill(230);
     rect(startX, startY, barWidth, barHeight);
   }
-  
+
   private void drawColorBar()
   {
     int size = 50;
@@ -81,7 +81,7 @@ class UI
     //color select area
     rect(startX, startY, barWidth, barHeight);
   }
-  
+
   private void drawPropertiesBar()
   {
     int barHeight = 52;
@@ -90,7 +90,7 @@ class UI
     fill(230);
     rect(startX, startY, width + 1, barHeight);
   }
-  
+
   private void drawNavigationBar()
   {
     int barHeight = 52;
@@ -99,7 +99,7 @@ class UI
     fill(230);
     rect(startX, startY, width + 1, height - barHeight);
   }
-  
+
   public void selectTool(Name t)
   {
     if(t == Name.UNGROUP_TOOL || t == Name.GROUP_TOOL || t == Name.UNDO_TOOL || t == Name.SAVE_TOOL){return;}
@@ -108,5 +108,5 @@ class UI
       else{buttons.get(i).deSelect();}
     }
   }
-  
+
 }
