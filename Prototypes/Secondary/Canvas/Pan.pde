@@ -78,6 +78,8 @@ class Pan {
       panHeight
     );
 
+    // Quick fix to not show objects outside of the canvas
+    // What's a better way to do this?
     clip(
       posCenter.getX() - panWidth / 2,
       posCenter.getY() - panHeight / 2,
