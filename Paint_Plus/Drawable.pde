@@ -103,6 +103,7 @@ class Eraser extends Drawable
   void mouseR(int x, int y){
     super.done = true; 
     strokeWeight(1);
+    stroke(0);
   }
   
   void display(){
