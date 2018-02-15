@@ -35,6 +35,7 @@ public class Canvas
     image(canvasCache, posX, posY);
   }
   
+  
   public void rawDisplay(){ //needs some work
     fill(255);
     noStroke();

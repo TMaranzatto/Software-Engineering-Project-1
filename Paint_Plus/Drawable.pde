@@ -37,29 +37,25 @@ class Pencil extends Drawable
   void mouseP(int x, int y){
     super.posX = x;
     super.posY = y;
-    super.shap.addChild(createShape(LINE, x, y, x, y));
+    //line(x, y, x, y);
     point(x,y);
   }
   
   void mouseD(int x, int y){
-    myCanvas.cacheDisplay();
-    //this is super duper laggy
+    stroke(super.col);
     if(super.posX != 0 && super.posY != 0){
-      super.shap.addChild(createShape(LINE,super.posX, super.posY, x, y));
-      //println(super.super.shap.getChildCount());
-      shape(super.shap);
-      //line(super.prevX, super.prevY, x, y);
+      line(super.posX, super.posY, x, y);
     }
      super.posX = x;
      super.posY = y;
   }
   
   void mouseR(int x, int y){
-  
+    super.done = true;  
   }
   
   void display(){
-    shape(super.shap);
+    
   }
   
 }
@@ -81,17 +77,17 @@ class Paint extends Drawable
   }
   
   void mouseD(int x, int y){
-    myCanvas.cacheDisplay();
     strokeWeight(thickness);
+    stroke(super.col);
+    //myCanvas.cacheDisplay();
     if(super.posX != 0 && super.posY != 0){
       if(thickness < max){
-        super.shap.addChild(createShape(LINE,super.posX, super.posY, x, y));
-        shape(super.shap);
+        line(super.posX, super.posY, x, y);
+        //shape(super.shap);
         thickness += 0.25;
       }
       else{
-        super.shap.addChild(createShape(LINE,super.posX, super.posY, x, y));
-        shape(super.shap);
+        line(super.posX, super.posY, x, y);
         strokeWeight(max);
       }
     }
@@ -100,14 +96,13 @@ class Paint extends Drawable
   }
   
   void mouseR(int x, int y){
+    super.done = true;
     strokeWeight(1);
     thickness = 1;
   }
   
   void display(){
-    //myCanvas.cacheDisplay();
-    shape(super.shap);
-    //super.shap = createShape(GROUP);
+    
   }
   
 }
@@ -168,7 +163,7 @@ class Curve extends Drawable
   
   void mouseP(int x, int y){
     stroke(super.col);
-    fill(255, 255, 255, 0);
+    fill(255, 255, 255, 255);
     if(turn == 1){
       super.posX = x;
       super.posY = y;
@@ -183,7 +178,7 @@ class Curve extends Drawable
   }
   
   void mouseD(int x, int y){
-    fill(255, 255, 255, 0);
+    fill(255, 255, 255, 255);
     stroke(super.col);
     if(turn == 1){
       myCanvas.cacheDisplay();
@@ -198,7 +193,7 @@ class Curve extends Drawable
   }
   
   void mouseR(int x, int y){
-    fill(255, 255, 255, 0);
+    //fill(super.col);
     stroke(super.col);
     if(turn == 1){
       x3 = x; 
@@ -227,7 +222,7 @@ class Ellipse extends Drawable //DONE
   
   void mouseP(int x1, int y1){
     stroke(super.col);
-    fill(255, 255, 255, 0);
+    fill(super.col);
     super.posX = x1;
     super.posY = y1;
     point(super.posX, super.posY);
