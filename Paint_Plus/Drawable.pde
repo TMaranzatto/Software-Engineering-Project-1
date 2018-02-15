@@ -152,6 +152,7 @@ class Curve extends Drawable
   private int y1, y3, y4;
   private int middleX, middleY;
   private int scale;
+  private int tempx, tempy;
   
   Curve(){
     turn = 1;
@@ -163,7 +164,7 @@ class Curve extends Drawable
   
   void mouseP(int x, int y){
     stroke(super.col);
-    fill(255, 255, 255, 255);
+    fill(255, 255, 255, 0);
     if(turn == 1){
       super.posX = x;
       super.posY = y;
@@ -178,27 +179,27 @@ class Curve extends Drawable
   }
   
   void mouseD(int x, int y){
-    fill(255, 255, 255, 255);
+    myCanvas.cacheDisplay();
+    fill(255, 255, 255, 0);
     stroke(super.col);
     if(turn == 1){
-      myCanvas.cacheDisplay();
       line(super.posX, super.posY, x, y);
     }
     else if(turn == 2){
       x1 = x4 = x - middleX;
       y1 = y4 = y - middleY; 
-      myCanvas.cacheDisplay();
       curve(x1 * scale, y1 * scale, super.posX, super.posY, x3, y3, x4 * scale, y4 * scale);
     }
   }
   
   void mouseR(int x, int y){
+    myCanvas.cacheDisplay();
     //fill(super.col);
     stroke(super.col);
     if(turn == 1){
       x3 = x; 
       y3 = y;
-      line(super.posX, super.posY, x3, y3);
+      //line(super.posX, super.posY, x3, y3);
       middleX = (super.posX + x3) / 2;
       middleY = (super.posY + y3) / 2;
       turn++;
