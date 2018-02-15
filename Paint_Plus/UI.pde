@@ -49,9 +49,9 @@ class UI
     buttons.add(new Button(Name.MAGENTA_COLOR, startX, startY + size * 7, "none", 8));
 
     //top toolbar
-    startX = 0;
+    startX = width - size;
     startY = 0;
-    color_window = new Button(Name.COLOR_WINDOW, startX, startY + size * 0, "none", 1);
+    color_window = new Button(Name.COLOR_WINDOW, startX, startY - size * 0, "none", 1);
 
     buttons.add(color_window);
   }
@@ -96,7 +96,7 @@ class UI
 
   private void drawPropertiesBar()
   {
-    int barHeight = 52;
+    int barHeight = 51;
     int startX = -1;
     int startY = -1;
     fill(230);
