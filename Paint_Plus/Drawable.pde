@@ -7,6 +7,7 @@ public class Drawable
   private int scale;
   private color col;
   private int white;
+  private int eraser_size;
   private boolean done;
   private PShape shap;
   
@@ -15,6 +16,7 @@ public class Drawable
     scale = 100;
     col = color(myColor);
     white = 255;
+    eraser_size = 15;
     done = false;
     shap = createShape(GROUP);
   }
@@ -64,6 +66,8 @@ class Pencil extends Drawable
 
 class Eraser extends Drawable
 { 
+  int eraser_size = 15;
+  int eraser_color = 255;
   Eraser(){}
   void mouseP(int x, int y){
     super.posX = x;
@@ -73,9 +77,9 @@ class Eraser extends Drawable
   }
   
   void mouseD(int x, int y){
-    stroke(super.white);
+    stroke(eraser_color);
     if(super.posX != 0 && super.posY != 0){
-      strokeWeight(15);
+      strokeWeight(eraser_size);
       line(super.posX, super.posY, x, y);
     }
      super.posX = x;
@@ -83,13 +87,13 @@ class Eraser extends Drawable
   }
   
   void mouseR(int x, int y){
-    super.done = true;  
+    super.done = true; 
+    strokeWeight(1);
   }
   
   void display(){
     
   }
-  
 }
 
 
