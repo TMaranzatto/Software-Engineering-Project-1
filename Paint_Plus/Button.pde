@@ -64,8 +64,9 @@ public class Button
     else
     {
       fill(col);
-      noStroke();
-      rect(posX, posY, size, size);
+      stroke(1);
+      ellipseMode(TOP);
+      ellipse(posX, posY, size, size);
       stroke(1);
     }
   }

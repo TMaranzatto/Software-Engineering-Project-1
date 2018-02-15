@@ -260,19 +260,23 @@ class Ellipse extends Drawable //DONE
   Ellipse(){}
   
   void mouseP(int x1, int y1){
+    ellipseMode(CENTER);
     stroke(super.col);
-    fill(super.col);
+    noFill();
+    //fill(super.col);
     super.posX = x1;
     super.posY = y1;
     point(super.posX, super.posY);
   }
   
   void mouseD(int x1, int y1){
+    ellipseMode(CENTER);
     myCanvas.cacheDisplay();
     ellipse(super.posX, super.posY, (x1 - super.posX)* 2, (y1 - super.posY)* 2);
   }
   
   void mouseR(int x1, int y1){
+    ellipseMode(CENTER);
     w = (x1 - super.posX) * 2;
     h = (y1 - super.posY) * 2;
     super.done = true;
@@ -283,7 +287,8 @@ class Ellipse extends Drawable //DONE
   void display(){
     if(super.done){
       stroke(super.col);
-      fill(super.col);
+      noFill();
+      //fill(super.col);
       ellipse(super.posX, super.posY, w, h);
     }
   }
