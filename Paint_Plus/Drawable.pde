@@ -32,6 +32,20 @@ public class Drawable
 }
 
 
+class floodFill extends Drawable{
+  //0 north -- 1 east -- 2 south -- 3 west
+  floodFill(){}
+  
+  void flood(int dir, color c, color rep){
+    
+  }
+  
+  void mouseP(int x, int y){
+   stroke(super.col);
+   loadPixels();
+   
+  }
+}
 
 class Pencil extends Drawable
 { 
@@ -399,7 +413,7 @@ class Text extends Drawable
   
   void keyT(Character c){
     myCanvas.cacheDisplay();
-    fill(0);
+    fill(super.col);
     textSize(15);
   if(c != BACKSPACE && c != RETURN && c != ENTER){
     text += c;
