@@ -168,7 +168,7 @@ class Curve extends Drawable
   
   void mouseP(int x, int y){
     stroke(super.col);
-    fill(255, 255, 255, 255);
+    fill(255, 255, 255, 0);
     if(turn == 1){
       super.posX = x;
       super.posY = y;
@@ -183,7 +183,7 @@ class Curve extends Drawable
   }
   
   void mouseD(int x, int y){
-    fill(255, 255, 255, 255);
+    fill(255, 255, 255, 0);
     stroke(super.col);
     if(turn == 1){
       myCanvas.cacheDisplay();
@@ -198,7 +198,7 @@ class Curve extends Drawable
   }
   
   void mouseR(int x, int y){
-    //fill(super.col);
+    fill(255, 255, 255, 0);
     stroke(super.col);
     if(turn == 1){
       x3 = x; 
@@ -227,7 +227,7 @@ class Ellipse extends Drawable //DONE
   
   void mouseP(int x1, int y1){
     stroke(super.col);
-    fill(super.col);
+    fill(255, 255, 255, 0);
     super.posX = x1;
     super.posY = y1;
     point(super.posX, super.posY);
