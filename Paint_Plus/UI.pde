@@ -52,7 +52,7 @@ class UI
     //top toolbar
     startX = width - size;
     startY = 0;
-    color_window = new Button(Name.COLOR_WINDOW, startX, startY - size * 0, "none", 1);
+    color_window = new Button(Name.COLOR_WINDOW, startX, startY - size * 0, "none", 2);
 
     buttons.add(color_window);
   }
