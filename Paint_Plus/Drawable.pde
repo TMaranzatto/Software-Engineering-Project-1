@@ -10,6 +10,7 @@ public class Drawable
   private int eraser_size;
   private boolean done;
   private PShape shap;
+  private Canvas myCanvas;
   
   public Drawable(){
     rotation = 100;
@@ -26,11 +27,30 @@ public class Drawable
   void mouseR(int x, int y){}
   void display(){}
   void keyT(Character c){}
+  void savePNG(){}
+  void loadPNG(){}
   
   boolean isDone(){return done;}
   color getColor(){return col;}
 }
 
+class canvasSave extends Drawable{
+  
+  canvasSave(){}
+  
+  void savePNG(){
+    myCanvas.exportPNG();
+  }
+}
+
+class canvasLoad extends Drawable{
+  
+  canvasLoad(){}
+  
+  void loadPNG(){
+    myCanvas.loadPNG();
+  }
+}
 
 class floodFill extends Drawable{
   //0 north -- 1 east -- 2 south -- 3 west
@@ -189,7 +209,7 @@ class Line extends Drawable //DONE
   void display(){
     if(super.done){
       stroke(super.col);
-      fill(super.col);
+      //fill(super.col);
       line(super.posX, super.posY, posX2, posY2);
     }
   }
@@ -247,6 +267,7 @@ class Curve extends Drawable
     myCanvas.cacheDisplay();
     //fill(super.col);
     stroke(super.col);
+    fill(255, 255, 255, 0);
     if(turn == 1){
       //myCanvas.cacheState();
       x3 = x; 
@@ -258,6 +279,7 @@ class Curve extends Drawable
     }
     else if(turn == 2){
       //myCanvas.cacheDisplay();
+      fill(255, 255, 255, 0);
       x1 = x4 = x - middleX;
       y1 = y4 = y - middleY; 
       super.done = true;
@@ -277,7 +299,7 @@ class Ellipse extends Drawable //DONE
   void mouseP(int x1, int y1){
     ellipseMode(CENTER);
     stroke(super.col);
-    noFill();
+    fill(255, 255, 255, 0);
     //fill(super.col);
     super.posX = x1;
     super.posY = y1;
@@ -285,12 +307,14 @@ class Ellipse extends Drawable //DONE
   }
   
   void mouseD(int x1, int y1){
+    fill(255, 255, 255, 0);
     ellipseMode(CENTER);
     myCanvas.cacheDisplay();
     ellipse(super.posX, super.posY, (x1 - super.posX)* 2, (y1 - super.posY)* 2);
   }
   
   void mouseR(int x1, int y1){
+    fill(255, 255, 255, 0);
     ellipseMode(CENTER);
     w = (x1 - super.posX) * 2;
     h = (y1 - super.posY) * 2;
@@ -302,7 +326,7 @@ class Ellipse extends Drawable //DONE
   void display(){
     if(super.done){
       stroke(super.col);
-      noFill();
+      fill(255, 255, 255, 0);
       //fill(super.col);
       ellipse(super.posX, super.posY, w, h);
     }
@@ -326,10 +350,12 @@ class Rect extends Drawable  //DONE
 
   void mouseD(int x1, int y1){
    myCanvas.cacheDisplay();
+   fill(255, 255, 255, 0);
    rect(super.posX, super.posY, x1 - super.posX, y1 - super.posY);
   }
 
   void mouseR(int x1, int y1){
+   fill(255, 255, 255, 0);
    super.done = true;
    w = x1 - super.posX; 
    h = y1 - super.posY;
@@ -340,7 +366,7 @@ class Rect extends Drawable  //DONE
   void display(){
     if(super.done){
       stroke(super.col);
-      fill(super.col);
+      fill(255, 255, 255, 0);
       rect(super.posX, super.posY, w, h);
     }
   }
@@ -356,6 +382,7 @@ class Polygon extends Drawable
   
   void mouseP(int x1, int y1){
     //myCanvas.cacheDisplay();
+    //fill(255, 255, 255, 0);
     stroke(super.col);
     if(isfirst == true){
      //print("first");

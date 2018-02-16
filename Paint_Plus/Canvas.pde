@@ -40,6 +40,10 @@ public class Canvas
     image(canvasCache, posX, posY);
   }
   
+  public void loadPNG(){
+    image(loadImage("savedData.png"), posX, posY);
+  }
+  
   
   public void rawDisplay(){ //needs some work
     fill(255);
