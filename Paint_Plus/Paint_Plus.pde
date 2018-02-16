@@ -95,6 +95,7 @@ void assignShape(){
   else if(toolSelected == Name.ERASER_TOOL) {myShape = new Eraser();}
   else if(toolSelected == Name.SAVE_TOOL) {myShape = new canvasSave();}
   else if(toolSelected == Name.UNDO_TOOL) {myShape = new canvasLoad();}
+  else { myShape = new Empty();}
 }
 
 

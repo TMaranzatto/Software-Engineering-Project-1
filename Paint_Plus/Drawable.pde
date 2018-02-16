@@ -32,6 +32,12 @@ public class Drawable
   color getColor(){return col;}
 }
 
+class Empty extends Drawable {
+  Empty() {
+    super.done = true;
+  }
+}
+
 class canvasSave extends Drawable{
   
   canvasSave(){}
@@ -49,7 +55,11 @@ class canvasLoad extends Drawable{
   canvasLoad(){}
   
   void sl(){
-    myCanvas.loadPNG();
+    try {
+      myCanvas.loadPNG();
+    } catch (Exception e) {
+      println("Error loading saved canvas: " + e); 
+    }
     println("loading...");
     super.done = true;
   }
