@@ -406,32 +406,33 @@ class Text extends Drawable
   Text(){}
   
   void mouseP(int x, int y){
-    text = "";
-    super.done = false;
-    super.posX = x;
-    super.posY = y;
+      textSize(15);
+      fill(super.col);
+      text = "";
+      //super.done = false;
+      super.posX = x;
+      super.posY = y;
+      text(text, super.posX, super.posY);
   }
   
   void keyT(Character c){
     myCanvas.cacheDisplay();
-    fill(super.col);
-    textSize(15);
-  if(c != BACKSPACE && c != RETURN && c != ENTER){
-    text += c;
-    text(text, super.posX, super.posY);
-  }
-  else if(c == BACKSPACE && text.length() != 0){
-    myCanvas.cacheDisplay();
-    text = text.substring(0, text.length() - 1);
-    text(text, super.posX, super.posY); 
-  }
-  else if(c == RETURN || c == ENTER){
-    super.done = true;
-    text(text, super.posX, super.posY); 
-    text = "";
-  }
-  //text(text, super.posX, super.posY); 
-  }
+      if(c != BACKSPACE && c != RETURN && c != ENTER){
+        text += c;
+        text(text, super.posX, super.posY);
+      }
+      else if(c == BACKSPACE && text.length() != 0){
+        //myCanvas.cacheDisplay();
+        text = text.substring(0, text.length() - 1);
+        text(text, super.posX, super.posY); 
+      }
+      else if(c == RETURN || c == ENTER){
+        super.done = true;
+        text(text, super.posX, super.posY); 
+        text = "";
+      }
+      //text(text, super.posX, super.posY); 
+    }
   
   void display(){
     fill(0);

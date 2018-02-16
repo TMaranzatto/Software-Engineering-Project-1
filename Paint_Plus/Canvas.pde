@@ -31,6 +31,11 @@ public class Canvas
     canvasCache = get(posX, posY, w, h);
   }
   
+  public void exportPNG(){
+    canvasCache.save("savedData.png");
+  }
+  
+  
   public void cacheDisplay(){
     image(canvasCache, posX, posY);
   }

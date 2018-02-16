@@ -19,7 +19,10 @@ void setup()
   myUI.display();
 }
 
-void draw(){}
+void draw(){
+  strokeWeight(1);
+  myUI.display();
+}
 
 
 void mouseClicked()
@@ -128,7 +131,7 @@ void mouseReleased()
 
 
 void keyTyped(){
-
+  //myCanvas.exportPNG();
   if(myShape != null){
     if(toolSelected == Name.TEXT_TOOL){
       if(myShape.done == false){
