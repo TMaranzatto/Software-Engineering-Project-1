@@ -284,6 +284,10 @@ class Curve extends Drawable
       pointsSelected++;
     }
     else if(turn == 2){
+      if (firstDraw == true) {
+        myCanvas.setCacheState(cacheState);
+        firstDraw = false;
+      }
       x1 = x4 = mouseX - middleX;
       y1 = y4 = mouseY - middleY; 
       myCanvas.cacheDisplay();
