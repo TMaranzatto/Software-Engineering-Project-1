@@ -26,6 +26,7 @@ public class Drawable
   void mouseR(int x, int y){}
   void display(){}
   void keyT(Character c){}
+  void sl(){}
   
   boolean isDone(){return done;}
   color getColor(){return col;}
@@ -35,7 +36,7 @@ class canvasSave extends Drawable{
   
   canvasSave(){}
   
-  void mouseP(int x, int y){
+  void sl(){
     println("saving...");
     myCanvas.exportPNG();
     super.done = true;
@@ -47,7 +48,7 @@ class canvasLoad extends Drawable{
   
   canvasLoad(){}
   
-  void mouseP(int x, int y){
+  void sl(){
     myCanvas.loadPNG();
     println("loading...");
     super.done = true;
