@@ -255,6 +255,8 @@ class Curve extends Drawable
   private int scale;
   private int tempx, tempy;
   private int pointsSelected;
+  private PImage cacheState;
+  private boolean firstDraw;
   
   Curve(){
     turn = 1;
@@ -263,6 +265,8 @@ class Curve extends Drawable
     middleX = middleY = 0;
     scale = 6;
     pointsSelected = 0;
+    firstDraw = true;
+    cacheState = myCanvas.getCacheState();
   }
   
   void mouseP(int x, int y){
@@ -296,6 +300,10 @@ class Curve extends Drawable
       pointsSelected++;
     }
     else if(turn == 2){
+      if (firstDraw == true) {
+        myCanvas.setCacheState(cacheState);
+        firstDraw = false;
+      }
       x1 = x4 = x - middleX;
       y1 = y4 = y - middleY; 
       curve(x1 * scale, y1 * scale, super.posX, super.posY, x3, y3, x4 * scale, y4 * scale);
@@ -303,7 +311,7 @@ class Curve extends Drawable
   }
   
   void mouseR(int x, int y){
-    myCanvas.cacheDisplay();
+    //myCanvas.cacheDisplay();
     //fill(super.col);
     stroke(super.col);
     fill(255, 255, 255, 0);

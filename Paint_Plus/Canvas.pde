@@ -27,6 +27,14 @@ public class Canvas
     cacheState();
   }
   
+  public PImage getCacheState() {
+    return canvasCache; 
+  }
+  
+  public void setCacheState(PImage state) {
+     canvasCache = state;
+  }
+  
   private void cacheState(){
     canvasCache = get(posX, posY, w, h);
   }
