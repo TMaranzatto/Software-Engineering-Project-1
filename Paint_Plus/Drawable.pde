@@ -468,6 +468,7 @@ class Polygon extends Drawable
 
   void mouseR(int x1, int y1){
    //myCanvas.cacheDisplay();
+   stroke(super.col);
    if(super.done == false){
    line(super.posX, super.posY, x1, y1);
    super.posX = x1;
