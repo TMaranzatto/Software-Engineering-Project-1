@@ -1,5 +1,5 @@
 //main file
-
+import processing.pdf.*;
 Name toolSelected = Name.LINE_TOOL;
 UI myUI;
 Canvas myCanvas;
@@ -10,6 +10,7 @@ void setup()
 {
   size(800,600);   //window size
   background(255); //white canvas
+  beginRecord(PDF, "Picture.pdf");
 
   myUI = new UI();
   myCanvas = new Canvas();
@@ -24,6 +25,11 @@ void draw(){
   myUI.display();
 }
 
+void keyPressed(){
+  if (key=='q'){
+    endRecord();
+  }
+}
 
 void mouseClicked()
 {
