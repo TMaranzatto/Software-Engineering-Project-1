@@ -254,6 +254,7 @@ class Curve extends Drawable
   private int middleX, middleY;
   private int scale;
   private int tempx, tempy;
+  private int pointsSelected;
   
   Curve(){
     turn = 1;
@@ -261,15 +262,22 @@ class Curve extends Drawable
     y1 = y3 = y4 = 0;
     middleX = middleY = 0;
     scale = 6;
+    pointsSelected = 0;
   }
   
   void mouseP(int x, int y){
     stroke(super.col);
     fill(255, 255, 255, 0);
     if(turn == 1){
-      super.posX = x;
-      super.posY = y;
-      point(super.posX, super.posY);
+      if (pointsSelected > 0) {
+        line(super.posX, super.posY, x, y);
+      }
+      else {
+        point(super.posX, super.posY);
+        super.posX = x;
+        super.posY = y;
+      }
+      pointsSelected++;
     }
     else if(turn == 2){
       x1 = x4 = mouseX - middleX;
@@ -285,6 +293,7 @@ class Curve extends Drawable
     stroke(super.col);
     if(turn == 1){
       line(super.posX, super.posY, x, y);
+      pointsSelected++;
     }
     else if(turn == 2){
       x1 = x4 = x - middleX;
@@ -306,7 +315,9 @@ class Curve extends Drawable
       //line(super.posX, super.posY, x3, y3);
       middleX = (super.posX + x3) / 2;
       middleY = (super.posY + y3) / 2;
-      turn++;
+      if (pointsSelected > 1) {
+        turn++;
+      }
     }
     else if(turn == 2){
       //myCanvas.cacheDisplay();
