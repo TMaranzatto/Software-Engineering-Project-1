@@ -276,6 +276,7 @@ class Curve extends Drawable
     fill(255, 255, 255, 0);
     if(turn == 1){
       //myCanvas.cacheState();
+      line(super.posX, super.posY, x, y);
       x3 = x; 
       y3 = y;
       //line(super.posX, super.posY, x3, y3);
@@ -315,6 +316,7 @@ class Ellipse extends Drawable //DONE
   
   void mouseD(int x1, int y1){
     fill(255, 255, 255, 0);
+    stroke(super.col);
     ellipseMode(CENTER);
     myCanvas.cacheDisplay();
     ellipse(super.posX, super.posY, (x1 - super.posX)* 2, (y1 - super.posY)* 2);
@@ -322,6 +324,7 @@ class Ellipse extends Drawable //DONE
   
   void mouseR(int x1, int y1){
     fill(255, 255, 255, 0);
+    stroke(super.col);
     ellipseMode(CENTER);
     w = (x1 - super.posX) * 2;
     h = (y1 - super.posY) * 2;

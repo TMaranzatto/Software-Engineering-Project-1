@@ -26,13 +26,7 @@ void draw(){
   myUI.display();
 }
 
-void keyPressed(){
-  if (key=='q'){
-    beginRecord(PDF, "Picture.pdf");
-    myCanvas.cacheDisplay();
-    endRecord();
-  }
-}
+
 
 void mouseClicked()
 {
@@ -72,11 +66,12 @@ void mouseClicked()
     else if(mouseX >= startX && mouseX <= size * 2){ toolSelected = Name.GROUP_TOOL;}
     else if(mouseX >= startX && mouseX <= size * 3){ toolSelected = Name.BUCKET_TOOL;}
     else if(mouseX >= startX && mouseX <= size * 4){ toolSelected = Name.ZOOM_TOOL;}
-    else if(mouseX >= startX && mouseX <= size * 5){ toolSelected = Name.UNDO_TOOL; new canvasLoad().sl();}
+    else if(mouseX >= startX && mouseX <= size * 5){ new canvasLoad().sl();}
     else if(mouseX >= startX && mouseX <= size * 6){ toolSelected = Name.CURSOR_TOOL;}
     else if(mouseX >= startX && mouseX <= size * 7){ toolSelected = Name.PAN_TOOL;}
     else if(mouseX >= startX && mouseX <= size * 8){ toolSelected = Name.ERASER_TOOL;}
-    else if(mouseX >= width - size && mouseX <= width){ toolSelected = Name.SAVE_TOOL;new canvasSave().sl();}
+    else if(mouseX >= width - size && mouseX <= width){ new canvasSave().sl(); myCanvas.cacheDisplay();}
+    else if(mouseX >= width - size * 2 && mouseX <= width - size){ println("saving..."); beginRecord(PDF, "Picture.pdf"); myCanvas.cacheDisplay(); endRecord();}
   }
   else if(toolSelected == Name.CURSOR_TOOL) //if cursor tool is selected
   {
