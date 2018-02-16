@@ -10,7 +10,7 @@ void setup()
 {
   size(800,600);   //window size
   background(255); //white canvas
-  beginRecord(PDF, "Picture.pdf");
+  //beginRecord(PDF, "Picture.pdf");
 
   myUI = new UI();
   myCanvas = new Canvas();
@@ -27,6 +27,8 @@ void draw(){
 
 void keyPressed(){
   if (key=='q'){
+    beginRecord(PDF, "Picture.pdf");
+    myCanvas.cacheDisplay();
     endRecord();
   }
 }
