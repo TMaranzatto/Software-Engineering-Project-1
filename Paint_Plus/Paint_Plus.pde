@@ -1,5 +1,6 @@
 //main file
 import processing.pdf.*;
+
 Name toolSelected = Name.LINE_TOOL;
 UI myUI;
 Canvas myCanvas;
@@ -97,12 +98,15 @@ void assignShape(){
   else if(toolSelected == Name.POLYGON_TOOL){myShape = new Polygon();}
   else if(toolSelected == Name.TEXT_TOOL)   {myShape = new Text();}
   else if(toolSelected == Name.ERASER_TOOL) {myShape = new Eraser();}
+  else if(toolSelected == Name.SAVE_TOOL) {myShape = new canvasSave(); }
+  else if(toolSelected == Name.UNDO_TOOL) {myShape = new canvasLoad();}
 }
+
 
 void mousePressed()
 {
   //check if it's pressed on a canvas:
-  if(mouseX > 51 && mouseX < width - 51 && mouseY > 51 && mouseY < height - 51){
+  if((mouseX > 51 && mouseX < width - 51 && mouseY > 51 && mouseY < height - 51)){
     //no previous shape created yet:
     if(myShape == null){
       assignShape();

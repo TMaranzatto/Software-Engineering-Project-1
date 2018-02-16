@@ -10,7 +10,6 @@ public class Drawable
   private int eraser_size;
   private boolean done;
   private PShape shap;
-  private Canvas myCanvas;
   
   public Drawable(){
     rotation = 100;
@@ -27,8 +26,6 @@ public class Drawable
   void mouseR(int x, int y){}
   void display(){}
   void keyT(Character c){}
-  void savePNG(){}
-  void loadPNG(){}
   
   boolean isDone(){return done;}
   color getColor(){return col;}
@@ -38,18 +35,23 @@ class canvasSave extends Drawable{
   
   canvasSave(){}
   
-  void savePNG(){
+  void mouseP(int x, int y){
+    println("saving...");
     myCanvas.exportPNG();
+    super.done = true;
   }
+  
 }
 
 class canvasLoad extends Drawable{
   
   canvasLoad(){}
   
-  void loadPNG(){
+  void mouseP(int x, int y){
     myCanvas.loadPNG();
+    super.done = true;
   }
+  
 }
 
 class floodFill extends Drawable{
@@ -194,6 +196,7 @@ class Line extends Drawable //DONE
   }
   
   void mouseD(int x, int y){
+    stroke(super.col);
     myCanvas.cacheDisplay();
     line(super.posX, super.posY, x, y);
   }
@@ -203,6 +206,7 @@ class Line extends Drawable //DONE
     posY2 = y;
     super.done = true;
     myCanvas.cacheDisplay();
+    stroke(super.col);
     line(super.posX, super.posY, posX2, posY2);
   }
   
@@ -283,6 +287,7 @@ class Curve extends Drawable
       x1 = x4 = x - middleX;
       y1 = y4 = y - middleY; 
       super.done = true;
+      stroke(super.col);
       //myCanvas.cacheDisplay();
       curve(x1 * scale, y1 * scale, super.posX, super.posY, x3, y3, x4 * scale, y4 * scale);
     }
