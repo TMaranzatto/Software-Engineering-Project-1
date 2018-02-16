@@ -49,6 +49,7 @@ class canvasLoad extends Drawable{
   
   void mouseP(int x, int y){
     myCanvas.loadPNG();
+    println("loading...");
     super.done = true;
   }
   
@@ -356,11 +357,13 @@ class Rect extends Drawable  //DONE
   void mouseD(int x1, int y1){
    myCanvas.cacheDisplay();
    fill(255, 255, 255, 0);
+   stroke(super.col);
    rect(super.posX, super.posY, x1 - super.posX, y1 - super.posY);
   }
 
   void mouseR(int x1, int y1){
    fill(255, 255, 255, 0);
+   stroke(super.col);
    super.done = true;
    w = x1 - super.posX; 
    h = y1 - super.posY;
