@@ -31,7 +31,7 @@ class UI
     buttons.add(new Button(Name.GROUP_TOOL, startX + size * 1, startY, "data/Ungroup_Tool.png",0));
     buttons.add(new Button(Name.BUCKET_TOOL, startX + size * 2, startY, "data/Bucket_Tool.png",0));
     buttons.add(new Button(Name.ZOOM_TOOL, startX + size * 3, startY, "data/Magnify_Tool.png",0));
-    buttons.add(new Button(Name.UNDO_TOOL, startX + size * 4, startY, "data/Undo_Tool.png", 0));
+    buttons.add(new Button(Name.LOAD_TOOL, startX + size * 4, startY, "data/Load_Tool.png", 0));
     buttons.add(new Button(Name.SAVE_TOOL, startX + size * 15, startY, "data/Save_Tool.png", 0));
     buttons.add(new Button(Name.CURSOR_TOOL, startX + size * 5, startY, "data/Click_Tool.png", 0));
     buttons.add(new Button(Name.PAN_TOOL, startX + size * 6, startY, "data/Pan_Tool.png", 0));
