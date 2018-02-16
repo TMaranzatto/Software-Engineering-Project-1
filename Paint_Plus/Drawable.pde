@@ -60,6 +60,7 @@ class canvasLoad extends Drawable{
     } catch (Exception e) {
       println("Error loading saved canvas: " + e); 
     }
+    myCanvas.cacheState();
     println("loading...");
     super.done = true;
   }
