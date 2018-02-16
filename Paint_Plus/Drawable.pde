@@ -185,7 +185,21 @@ class Paint extends Drawable
 
 class Line extends Drawable //DONE
 {
-  private int posX2;
+  boolean isfirst = true; 
+  void mouseP(int x1, int y1){
+    stroke(super.col);
+    if(isfirst == true){
+     point(x1, y1);
+     super.posX = x1;
+     super.posY = y1;
+     isfirst = false;
+    }
+    else{
+      line(super.posX, super.posY, x1, y1);
+      super.done = true;
+    }
+  }
+  /*private int posX2;
   private int posY2;
   
   Line(){}
@@ -219,6 +233,7 @@ class Line extends Drawable //DONE
       line(super.posX, super.posY, posX2, posY2);
     }
   }
+  */
 }
 
 
