@@ -289,7 +289,7 @@ class Curve extends Drawable
     fill(255, 255, 255, 0);
     if(turn == 1){
       //myCanvas.cacheState();
-      line(super.posX, super.posY, x, y);
+      //line(super.posX, super.posY, x, y);
       x3 = x; 
       y3 = y;
       //line(super.posX, super.posY, x3, y3);
