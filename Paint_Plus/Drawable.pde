@@ -73,8 +73,6 @@ class floodFill extends Drawable{
 
 class Pencil extends Drawable
 { 
-  //these cause issues... we need to create these as dynamic psuper.shapes
-  //this works but crashes for more than one pencil on the canvas, so... it doesn't work
   Pencil(){}
   void mouseP(int x, int y){
     super.posX = x;
@@ -346,6 +344,7 @@ class Ellipse extends Drawable //DONE
     super.done = true;
     myCanvas.cacheDisplay();
     ellipse(super.posX, super.posY, w, h);
+    myUI.display();
   }
   
   void display(){

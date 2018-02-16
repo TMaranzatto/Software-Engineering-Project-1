@@ -64,6 +64,11 @@ class UI
 
   void display()
   {
+    fill(255);
+    noStroke();
+    rect(0, 51, 51, 48);
+    rect(0, 501, 51, 49);
+    rect(749, 51, 52, 500);
     stroke(color(0));
     drawPropertiesBar(); //top
     drawNavigationBar(); //bottom
@@ -73,6 +78,7 @@ class UI
     {
       buttons.get(i).display();
     }
+    
   }
 
   private void drawToolBar()

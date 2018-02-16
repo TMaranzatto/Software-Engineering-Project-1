@@ -10,9 +10,9 @@ public class Canvas
   Canvas(){
     shapes = new ArrayList<Drawable>(100); //Array list with initial capacity
     posX = 51;
-    posY = 52;
+    posY = 51;
     w = width - 102;
-    h = height - 102;
+    h = height - 101;
     cacheState();
   }
   
