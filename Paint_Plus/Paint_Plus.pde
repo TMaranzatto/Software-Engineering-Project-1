@@ -72,7 +72,7 @@ void mouseClicked()
     else if(mouseX >= startX && mouseX <= size * 2){ toolSelected = Name.GROUP_TOOL;}
     else if(mouseX >= startX && mouseX <= size * 3){ toolSelected = Name.BUCKET_TOOL;}
     else if(mouseX >= startX && mouseX <= size * 4){ toolSelected = Name.ZOOM_TOOL;}
-    else if(mouseX >= startX && mouseX <= size * 5){ toolSelected = Name.UNDO_TOOL;}
+    else if(mouseX >= startX && mouseX <= size * 5){ toolSelected = Name.LOAD_TOOL;}
     else if(mouseX >= startX && mouseX <= size * 6){ toolSelected = Name.CURSOR_TOOL;}
     else if(mouseX >= startX && mouseX <= size * 7){ toolSelected = Name.PAN_TOOL;}
     else if(mouseX >= startX && mouseX <= size * 8){ toolSelected = Name.ERASER_TOOL;}
@@ -99,7 +99,7 @@ void assignShape(){
   else if(toolSelected == Name.TEXT_TOOL)   {myShape = new Text();}
   else if(toolSelected == Name.ERASER_TOOL) {myShape = new Eraser();}
   else if(toolSelected == Name.SAVE_TOOL) {myShape = new canvasSave(); }
-  else if(toolSelected == Name.UNDO_TOOL) {myShape = new canvasLoad();}
+  else if(toolSelected == Name.LOAD_TOOL) {myShape = new canvasLoad();}
 }
 
 
